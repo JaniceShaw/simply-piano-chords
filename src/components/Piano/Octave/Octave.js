@@ -1,12 +1,25 @@
 import React from 'react';
-import Keynote from '../Keynote/Keynote.js'
+import './Octave.scss';
+import Keynote from './Keynote/Keynote.js'
+
+// need to make a start note variable to that it is possible to display not a complete octave
+
+//check start note and display from there
+//check end note and end there
+//make an array with the require notes
+//map array to display needed notes
 
 class Octave extends React.Component {
     render() {
+        let allNotes = [["C", false], ["C", true], ["D", false], ["D", true], ["E", false], ["F", false], ["F", true], ["G", false], ["G", true]];
+        const n1 = this.props.n1;
+
+        if (n1 !== "C") {
+
+        }
+
         return (
             <div className="Octave">
-                <div className="displayNum">{this.props.octaveNum}</div>
-
                 <Keynote note="C" octaveNum={this.props.octaveNum} />
                 <Keynote note="C" octaveNum={this.props.octaveNum} black />
                 <Keynote note="D" octaveNum={this.props.octaveNum} />
@@ -19,13 +32,11 @@ class Octave extends React.Component {
                 <Keynote note="A" octaveNum={this.props.octaveNum} />
                 <Keynote note="A" octaveNum={this.props.octaveNum} black />
                 <Keynote note="B" octaveNum={this.props.octaveNum} />
+
+                <div className="Octave-displayNum">{this.props.octaveNum}</div>
             </div>
         );
-
     }
-
 }
-
-
 export default Octave;
 

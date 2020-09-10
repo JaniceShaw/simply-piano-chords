@@ -1,0 +1,20 @@
+.Octave {
+  padding-bottom: 20px;
+  position: relative;
+
+  .Octave-displayNum {
+    position: absolute;
+    color: skyblue;
+    bottom: 0px;
+    left: 4px;
+    text-align: center;
+    border: solid 2px skyblue;
+    border-radius: 0 0 5px 5px;
+    border-top: none;
+    width: 99%;
+  }
+
+  &:last-child li:last-of-type {
+    border-width: 3px 2px 4px 2px;
+  }
+}

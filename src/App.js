@@ -1,19 +1,14 @@
 import React from 'react';
-import Octave from './components/Octave/Octave.js'
+import Piano from './components/Piano/Piano.js'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>piano keyboard</h1>
-      </header>
-      <ul className="piano">
-        <Octave octaveNum={3} />
-        <Octave octaveNum={4} />
-        <Octave octaveNum={5} />
-      </ul>
 
+      </header>
+      <Piano start={3} end={5} n1="E" n2="F" />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Keynote.scss';
 
 class Keynote extends React.Component {
     render() {
@@ -13,7 +14,7 @@ class Keynote extends React.Component {
         };
 
         let classes =
-            "keynote" +
+            "Keynote" +
             " " +
             noteName +
             this.props.octaveNum +
@@ -23,8 +24,7 @@ class Keynote extends React.Component {
         return (
 
             <li className={classes}>
-                <div className="label">{noteName} </div>
-
+                <div className="Keynote-label">{noteName} </div>
             </li>
 
         );

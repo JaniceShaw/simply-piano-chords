@@ -10,8 +10,8 @@ class Piano extends React.Component {
         start: 4,
         end: 4
     }
-    render() {
 
+    render() {
         const start = this.props.start;
         let end = this.props.end;
 
@@ -22,24 +22,19 @@ class Piano extends React.Component {
         let n = start;
         let oct = [];
 
+        //loop the number of octaves to show from start octave to end octave
         while (n <= end) {
             oct.push(n);
             n = n + 1;
         }
-
         console.log(start, end, oct);
 
         return (
             <ul className="Piano">
                 {oct.map(i =>
-
-                    <Octave octaveNum={i} />)}
-
-
-
+                    <Octave octaveNum={i} key={i} />)}
             </ul>
         );
-
     }
 
 }

@@ -1,3 +1,9 @@
+html {
+  background-color: rgb(205, 54, 108);
+}
+
 body {
-  margin: 0;
+  margin: 2px 10px;
+  background: white;
+  border-radius: 40px;
 }

@@ -12,6 +12,10 @@
     border-radius: 0 0 7px 7px;
     border-top: none;
     width: 98%;
+    
+    .hideOctave & {
+      display: none;
+    }
   }
 
   &:last-child li:last-of-type {

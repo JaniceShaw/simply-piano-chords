@@ -2,6 +2,7 @@ import React from 'react';
 import './Octave.scss';
 import Keynote from './Keynote/Keynote.js'
 
+//data  used by component
 const allNotes = [
     ["C", "C"],
     ["Cs", "C\u266F D\u266D"],
@@ -16,129 +17,61 @@ const allNotes = [
     ["As", "A\u266F B\u266D"],
     ["B", "B"],
 ];
-
 //make array that contains only note name
 let notes = [];
 allNotes.map(i => notes.push(i[0]));
+// END data
 
 class Octave extends React.Component {
-    static defaultProps = {
-        // n1: "C",
-        // n2: "B"
-    }
 
     render() {
-        const n1 = this.props.n1;
-        const n2 = this.props.n2;
+        const { n1, n2, octaveNum } = this.props;
 
-        const firstNote = notes.indexOf(n1);
-        const startOctave = allNotes.slice(firstNote, allNotes.length);
-
+        //make an array for the fist octave so that it can start at the chosen note
+        const firstNote = notes.indexOf(n1); // get the index of the first note
+        const startOctave = allNotes.slice(firstNote, allNotes.length); // make array from start note
+        //make an array for the last octave so that it can end at the end note
         const lastNote = notes.indexOf(n2);
         const endOctave = allNotes.slice(0, lastNote + 1);
 
-        const lf1 = this.props.lf1;
-        const lf2 = this.props.lf2;
-        const lf3 = this.props.lf3;
-        const lf4 = this.props.lf4;
-        const lf5 = this.props.lf5;
-
-        const rf1 = this.props.rf1;
-        const rf2 = this.props.rf2;
-        const rf3 = this.props.rf3;
-        const rf4 = this.props.rf4;
-        const rf5 = this.props.rf5;
-
         const fingering = this.props.fingering;
-
         let display;
 
+        //check if need to show the octave that dose not start at c
         if (n1 !== null) {
+            // console.log("nnnn", startOctave[0]);
+            display = startOctave.map(i =>
 
-            // fingering.map(f =>
-
-            //     if (f[0] === this.props.octaveNum) {
-            //     console.log(f[0])
-            // }
-            // )
-
-
-            if (lf1[0] === this.props.octaveNum) {
-                display = startOctave.map(i =>
-                    <Keynote
-                        note={i[0]}
-                        label={i[1]}
-                        lf1={lf1}
-                        octaveNum={this.props.octaveNum}
-                        key={i[0] + this.props.octaveNum}
-                    />
-                )
-            } else {
-                display = startOctave.map(i =>
-                    <Keynote
-                        note={i[0]}
-                        label={i[1]}
-                        lf1={lf1}
-                        lf2={lf2}
-                        lf3={lf3}
-                        lf4={lf4}
-                        lf5={lf5}
-                        octaveNum={this.props.octaveNum}
-                        key={i[0] + this.props.octaveNum}
-                    />
-                )
-            }
-
-        } else {
-            if (lf1[0] === this.props.octaveNum) {
-                display = allNotes.map(i =>
-                    <Keynote
-                        note={i[0]}
-                        label={i[1]}
-                        lf1={lf1}
-                        lf2={lf2}
-                        lf3={lf3}
-                        lf4={lf4}
-                        lf5={lf5}
-                        rf1={rf1}
-
-                        octaveNum={this.props.octaveNum}
-                        key={i[0] + this.props.octaveNum}
-                    />
-                )
-            } else {
-                display = allNotes.map(i =>
-                    <Keynote
-                        note={i[0]}
-                        label={i[1]}
-                        octaveNum={this.props.octaveNum}
-                        key={i[0] + this.props.octaveNum}
-                    />
-                )
-            }
-
-
-
-
-            // display = allNotes.map(i =>
-            //     <Keynote
-            //         note={i[0]}
-            //         label={i[1]}
-            //         lf1={this.props.lf1}
-            //         lf2={this.props.lf2}
-            //         octaveNum={this.props.octaveNum}
-            //         key={i[0] + this.props.octaveNum}
-            //     />
-            // )
-        }
-        if (n2 !== null) {
-            display = endOctave.map(i =>
-                // console.log("start octave", i)
                 <Keynote
                     note={i[0]}
                     label={i[1]}
-                    octaveNum={this.props.octaveNum}
-                    key={i[0] + this.props.octaveNum}
+                    octaveNum={octaveNum}
+                    key={i[0] + octaveNum}
+                    fingering={fingering}
+                />
+            )
+        } else {
+            //displays all note c - b 
+            display = allNotes.map(i =>
+                <Keynote
+                    note={i[0]}
+                    label={i[1]}
+                    octaveNum={octaveNum}
+                    key={i[0] + octaveNum}
+                    fingering={fingering}
+                />
+            )
+        }
+
+        //checks that last octave not finishing on b then displays to correct note
+        if (n2 !== null) {
+            display = endOctave.map(i =>
+                <Keynote
+                    note={i[0]}
+                    label={i[1]}
+                    octaveNum={octaveNum}
+                    key={i[0] + octaveNum}
+                    fingering={fingering}
                 />
             )
         }
@@ -146,20 +79,9 @@ class Octave extends React.Component {
         return (
             <div className="Octave">
                 {display}
-                {/* {allNotes.map(i =>
-                    <Keynote
-                        note={i[0]}
-                        label={i[1]}
-                        octaveNum={this.props.octaveNum}
-                        key={i[0] + this.props.octaveNum}
-
-                    />
-                )} */}
-
-                <div className="Octave-displayNum">{this.props.octaveNum}</div>
+                <div className="Octave-displayNum">{octaveNum}</div>
             </div>
         );
     }
 }
 export default Octave;
-

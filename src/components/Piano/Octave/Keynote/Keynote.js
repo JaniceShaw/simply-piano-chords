@@ -1,59 +1,35 @@
 import React from 'react';
 import './Keynote.scss';
 
+const theFingers = ["lf5", "lf4", "lf3", "lf2", "lf1", "rf1", "rf2", "rf3", "rf4", "rf5"];
+
 class Keynote extends React.Component {
     render() {
 
         let noteType = "white";
-        let noteName = this.props.note;
-        let noteLabel = this.props.label;
         let finger = "";
 
-        if (this.props.note.length > 1) {
+        const { octaveNum, fingering } = this.props;
+
+        const noteName = this.props.note;
+        const noteLabel = this.props.label;
+
+        if (noteName.length > 1) {
             noteType = "black";
         } else {
             noteType = "white"
         };
 
-        if (this.props.lf1 && this.props.lf1[1] === noteName) {
+        fingering.map((f, index) => {
+            if (f[0] === octaveNum && f[1] === noteName) {
 
-            finger = "finger lf1 "
-        }
+                finger = `finger ${theFingers[index]} `
+            }
+            return finger;
+        });
 
-        if (this.props.lf2 && this.props.lf2[1] === noteName) {
+        let classes = `Keynote ${finger} ${noteName} ${this.props.octaveNum} ${noteType}`;
 
-            finger += " finger lf2 "
-        }
-
-        if (this.props.lf3 && this.props.lf3[1] === noteName) {
-
-            finger += " finger lf3 "
-        }
-
-        if (this.props.lf4 && this.props.lf4[1] === noteName) {
-
-            finger += " finger lf4 "
-        }
-
-        if (this.props.lf5 && this.props.lf5[1] === noteName) {
-
-            finger += " finger lf5 "
-        }
-
-        if (this.props.rf5 && this.props.rf5[1] === noteName) {
-
-            finger += " finger rf5 "
-        }
-
-
-        let classes =
-            "Keynote " +
-            finger +
-            noteName +
-            this.props.octaveNum +
-            " " +
-            noteType
-            ;
         return (
 
             <li className={classes}>
@@ -64,6 +40,4 @@ class Keynote extends React.Component {
     }
 }
 
-
 export default Keynote;
-

@@ -3,6 +3,7 @@ import './Piano.scss';
 import Octave from './Octave/Octave.js'
 
 class Piano extends React.Component {
+
     static defaultProps = {
         start: 4,
         end: 4,
@@ -22,48 +23,29 @@ class Piano extends React.Component {
         rf5: []
     }
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            start: this.props.start, //octave to start at
+            end: this.props.end, // octave to end at this needs to change if less than start
+            n1: this.props.n1, // start note if not C
+            n2: this.props.n2, // end note if not B
+            displayOctave: this.props.displayOctave, // show octave numbers
+            displayNote: this.props.displayNote // show note names
+        };
+    }
 
     render() {
 
-        const start = this.props.start;
-        let end = this.props.end;
-
-        const n1 = this.props.n1;
-        const n2 = this.props.n2;
-
-        const displayOctave = this.props.displayOctave;
-        const displayNote = this.props.displayNote;
+        const { start, displayOctave, displayNote, n1, n2 } = this.state;
+        let end = this.state.end;
+        //put the individual finger info into an array
+        //going from lf5 - rf5
+        const { lf5, lf4, lf3, lf2, lf1, rf1, rf2, rf3, rf4, rf5 } = this.props;
+        let fingering = [lf5, lf4, lf3, lf2, lf1, rf1, rf2, rf3, rf4, rf5];
         let displayClasses = "";
 
-        const lf1 = this.props.lf1;
-        const lf2 = this.props.lf2;
-        const lf3 = this.props.lf3;
-        const lf4 = this.props.lf4;
-        const lf5 = this.props.lf5;
-
-        const rf1 = this.props.rf1;
-        const rf2 = this.props.rf2;
-        const rf3 = this.props.rf3;
-        const rf4 = this.props.rf4;
-        const rf5 = this.props.rf5;
-
-        let fingering = [lf5, lf4, lf3, lf2, lf1];
-        // console.log("FIngering: ", fingering);
-
-        //check for selected notes
-        // if (lf1.length > 0) {
-        // let selOctave = lf1[0];
-        // let selNote = lf1[1];
-        // console.log(lf1[0], lf1[1]);
-        // }
-
-        // if (lf2.length > 0) {
-        // let selOctave = lf1[0];
-        // let selNote = lf1[1];
-        // console.log(lf2[0], lf2[1]);
-        // }
-
-        // check to see if should display notes and octave
+        // check to see if should display notes and octave. adds class name to Piano
         if (!displayOctave) {
             displayClasses = "hideOctave"
         }
@@ -76,17 +58,17 @@ class Piano extends React.Component {
             end = start;
         }
 
-        let n = start;
-        let oct = [];
+        let n = start; //start is the octave number that has been chosen
+        let oct = []; // array to fill with octaves eg. 4 default value only one octave starting at 4
 
-        //loop the number of octaves to show from start octave to end octave
-        while (n <= end) {
-            if (n === start) {
-                oct.push([n, n1, null]);
-            } else if (n === end) {
-                oct.push([n, null, n2]);
+        //loop to make the octave numbers and the start note and end note
+        while (n <= end) { // while n is less than last octave
+            if (n === start) { //if n = start octave
+                oct.push([n, n1, null]); // add to oct array n [octave number], n1 [start note], n2[end note] 
+            } else if (n === end) { // if oct num is == last oct num [the last octave]
+                oct.push([n, null, n2]);//add to array end note info
             } else {
-                oct.push([n, null, null]);
+                oct.push([n, null, null]); // oct num != first oct or last oct add to array
             }
             n = n + 1;
         }
@@ -100,18 +82,6 @@ class Piano extends React.Component {
                             key={i[0]}
                             n1={i[1]}
                             n2={i[2]}
-                            displayOctave={displayOctave}
-                            displayNote={displayNote}
-                            lf1={lf1}
-                            lf2={lf2}
-                            lf3={lf3}
-                            lf4={lf4}
-                            lf5={lf5}
-                            rf1={rf1}
-                            rf2={rf2}
-                            rf3={rf3}
-                            rf4={rf4}
-                            rf5={rf5}
                             fingering={fingering}
                         />)
                 }
@@ -121,6 +91,4 @@ class Piano extends React.Component {
 
 }
 
-
 export default Piano;
-

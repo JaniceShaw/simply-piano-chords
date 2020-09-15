@@ -76,6 +76,7 @@ li.Keynote {
     color: white;
     content: "";
   }
+
   &.lf1.finger::after {
     content: "1";
   }
@@ -90,5 +91,32 @@ li.Keynote {
   }
   &.lf5.finger::after {
     content: "5";
+  }
+  &.black.finger::after {
+    bottom: 45px;
+  }
+
+  &.rf1.finger::after {
+    content: "1";
+    background-color: rgb(54, 205, 172);
+  }
+  &.rf2.finger::after {
+    content: "2";
+    background-color: rgb(54, 205, 172);
+  }
+  &.rf3.finger::after {
+    content: "3";
+    background-color: rgb(54, 205, 172);
+  }
+  &.rf4.finger::after {
+    content: "4";
+    background-color: rgb(54, 205, 172);
+  }
+  &.rf5.finger::after {
+    content: "5";
+    background-color: rgb(54, 205, 172);
+  }
+  &.black.finger::after {
+    bottom: 45px;
   }
 }

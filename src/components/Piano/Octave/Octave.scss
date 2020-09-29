@@ -1,18 +1,20 @@
+@import "../scss/Piano-variables";
+
 .Octave {
   padding-bottom: 20px;
   position: relative;
 
   .Octave-displayNum {
     position: absolute;
-    color: skyblue;
+    color: $colour-piano-octave;
     bottom: 0px;
     left: 4px;
     text-align: center;
-    border: dashed 1px skyblue;
+    border: dashed 1px $colour-piano-octave;
     border-radius: 0 0 7px 7px;
     border-top: none;
     width: 98%;
-    
+
     .hideOctave & {
       display: none;
     }

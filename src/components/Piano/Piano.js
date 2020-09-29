@@ -1,47 +1,37 @@
 import React from 'react';
-import './Piano.scss';
+import './scss/Piano.scss';
 import Octave from './Octave/Octave.js'
 
 class Piano extends React.Component {
 
     static defaultProps = {
-        start: 4,
-        end: 4,
-        n1: "C",
-        n2: "B",
+        start: 4, //octave to start at
+        end: 4, // octave to end at this needs to change if less than start
+        n1: "C", // start note if not C
+        n2: "B", // end note if not B
         displayOctave: true,
         displayNote: true,
-        lf1: [],
-        lf2: [],
-        lf3: [],
-        lf4: [],
-        lf5: [],
-        rf1: [],
-        rf2: [],
-        rf3: [],
-        rf4: [],
-        rf5: []
+        lf1: [], lf2: [], lf3: [], lf4: [], lf5: [], rf1: [], rf2: [], rf3: [], rf4: [], rf5: []
     }
 
     constructor(props) {
         super(props);
         this.state = {
-            start: this.props.start, //octave to start at
-            end: this.props.end, // octave to end at this needs to change if less than start
-            n1: this.props.n1, // start note if not C
-            n2: this.props.n2, // end note if not B
-            displayOctave: this.props.displayOctave, // show octave numbers
-            displayNote: this.props.displayNote // show note names
+            start: this.props.start,
+            end: this.props.end,
+            n1: this.props.n1,
+            n2: this.props.n2,
         };
     }
 
+
     render() {
 
-        const { start, displayOctave, displayNote, n1, n2 } = this.state;
+        const { start, n1, n2 } = this.state;
         let end = this.state.end;
         //put the individual finger info into an array
         //going from lf5 - rf5
-        const { lf5, lf4, lf3, lf2, lf1, rf1, rf2, rf3, rf4, rf5 } = this.props;
+        const { lf5, lf4, lf3, lf2, lf1, rf1, rf2, rf3, rf4, rf5, displayOctave, displayNote } = this.props;
         let fingering = [lf5, lf4, lf3, lf2, lf1, rf1, rf2, rf3, rf4, rf5];
         let displayClasses = "";
 
@@ -86,6 +76,7 @@ class Piano extends React.Component {
                         />)
                 }
             </ul>
+
         );
     }
 

@@ -1,3 +1,5 @@
+@import "Piano-variables";
+
 .Piano {
   display: inline-flex;
   //   flex-wrap: nowrap;
@@ -7,5 +9,5 @@
   padding: 20px;
   margin: 20px;
   list-style: none;
-  background-color: rgb(205, 54, 108);
+  background-color: $colour-piano-back;
 }

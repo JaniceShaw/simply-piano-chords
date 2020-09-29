@@ -1,3 +1,5 @@
+@import "../../scss/Piano-variables";
+
 li.Keynote {
   position: relative;
   display: inline-block;
@@ -27,12 +29,12 @@ li.Keynote {
   }
 
   &:hover {
-    background-color: white;
+    background-color: $colour-piano-white-over;
     cursor: pointer;
   }
 
   &.black:hover {
-    background-color: black;
+    background-color: $colour-piano-black-over;
   }
 
   .Keynote-label {
@@ -69,7 +71,7 @@ li.Keynote {
     left: 0;
     right: 0;
     margin: 0 auto;
-    background-color: rgb(205, 54, 108);
+    background-color: $colour-piano-leftHand;
     border-radius: 50%;
     height: 25px;
     width: 25px;
@@ -98,23 +100,23 @@ li.Keynote {
 
   &.rf1.finger::after {
     content: "1";
-    background-color: rgb(54, 205, 172);
+    background-color: $colour-piano-rightHand;
   }
   &.rf2.finger::after {
     content: "2";
-    background-color: rgb(54, 205, 172);
+    background-color: $colour-piano-rightHand;
   }
   &.rf3.finger::after {
     content: "3";
-    background-color: rgb(54, 205, 172);
+    background-color: $colour-piano-rightHand;
   }
   &.rf4.finger::after {
     content: "4";
-    background-color: rgb(54, 205, 172);
+    background-color: $colour-piano-rightHand;
   }
   &.rf5.finger::after {
     content: "5";
-    background-color: rgb(54, 205, 172);
+    background-color: $colour-piano-rightHand;
   }
   &.black.finger::after {
     bottom: 45px;

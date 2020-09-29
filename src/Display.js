@@ -65,8 +65,8 @@ function test() {
 
 }
 
-console.log(test());
-var jan = test();
+// console.log(test());
+// var jan = test();
 // 
 
 class Display extends React.Component {
@@ -122,21 +122,13 @@ class Display extends React.Component {
 
                 <Piano
                     displayOctave={displayOctave}
-                    displayNote={displayNote}
+                    displayNote={false}
+
                     start={3}
                     end={4}
-                    lf5={jan}
-                    lf4={jan}
-                    lf3={jan}
-                    lf2={jan}
-                    lf1={jan}
 
-                    rf1={jan}
-                    rf2={jan}
-                    rf3={jan}
-                    rf4={jan}
-                    rf5={jan}
-
+                    selectedNotesLeft={[[3, "C", 5]]}
+                    selectedNotesRight={[[4, "C", 1], [4, "E", 3], [4, "G", 5]]}
                 />
 
 

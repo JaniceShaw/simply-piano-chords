@@ -11,7 +11,9 @@ class Piano extends React.Component {
         n2: "B", // end note if not B
         displayOctave: true,
         displayNote: true,
-        lf1: [], lf2: [], lf3: [], lf4: [], lf5: [], rf1: [], rf2: [], rf3: [], rf4: [], rf5: []
+        lf1: [], lf2: [], lf3: [], lf4: [], lf5: [], rf1: [], rf2: [], rf3: [], rf4: [], rf5: [],
+        selectedNotesLeft: [],
+        selectedNotesRight: []
     }
 
     constructor(props) {
@@ -31,7 +33,7 @@ class Piano extends React.Component {
         let end = this.state.end;
         //put the individual finger info into an array
         //going from lf5 - rf5
-        const { lf5, lf4, lf3, lf2, lf1, rf1, rf2, rf3, rf4, rf5, displayOctave, displayNote } = this.props;
+        const { lf5, lf4, lf3, lf2, lf1, rf1, rf2, rf3, rf4, rf5, displayOctave, displayNote, selectedNotesLeft, selectedNotesRight } = this.props;
         let fingering = [lf5, lf4, lf3, lf2, lf1, rf1, rf2, rf3, rf4, rf5];
         let displayClasses = "";
 
@@ -50,6 +52,8 @@ class Piano extends React.Component {
 
         let n = start; //start is the octave number that has been chosen
         let oct = []; // array to fill with octaves eg. 4 default value only one octave starting at 4
+
+        console.log(selectedNotesLeft);
 
         //loop to make the octave numbers and the start note and end note
         while (n <= end) { // while n is less than last octave

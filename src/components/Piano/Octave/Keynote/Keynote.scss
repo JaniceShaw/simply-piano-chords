@@ -23,8 +23,7 @@ li.Keynote {
     z-index: 2;
 
     .Keynote-label {
-      bottom: 20px;
-      font-size: 10px;
+      font-size: 1rem;
     }
   }
 
@@ -38,19 +37,13 @@ li.Keynote {
   }
 
   .Keynote-label {
-    /* border: solid 1px black; */
-    height: 20px;
-    width: 20px;
-    /* background-color: white; */
-    /* border-radius: 50%; */
     text-align: center;
     z-index: 3;
     position: absolute;
     bottom: 5px;
     left: 0;
     right: 0;
-    font-size: 12px;
-    margin: 0 auto;
+    font-size: 1.1rem;
 
     .hideNote & {
       display: none;
@@ -67,15 +60,18 @@ li.Keynote {
     position: absolute;
     display: inline-block;
     z-index: 3;
-    bottom: 30px;
+    bottom: 2.2rem;
     left: 0;
     right: 0;
     margin: 0 auto;
     background-color: $colour-piano-leftHand;
     border-radius: 50%;
-    height: 25px;
-    width: 25px;
+    height: 2.5rem;
+    width: 2.5rem;
     color: white;
+    font-size: 1.3rem;
+    line-height: 2.5rem;
+
     content: "";
   }
 

@@ -1,15 +1,11 @@
 import React from 'react';
 import './Keynote.scss';
 
-const theFingers = ["lf5", "lf4", "lf3", "lf2", "lf1", "rf1", "rf2", "rf3", "rf4", "rf5"];
-
 class Keynote extends React.Component {
     render() {
 
         let noteType = "white";
-        let finger = "";
-
-        const { octaveNum, fingering } = this.props;
+        const { octaveNum, selectedNotesLeft, selectedNotesRight } = this.props;
 
         const noteName = this.props.note;
         const noteLabel = this.props.label;
@@ -20,15 +16,25 @@ class Keynote extends React.Component {
             noteType = "white"
         };
 
-        fingering.map((f, index) => {
-            if (f[0] === octaveNum && f[1] === noteName) {
+        var leftSel = "";
+        selectedNotesLeft.map(note => {
 
-                finger = `finger ${theFingers[index]} `
+            if (note[0] === octaveNum && note[1] === noteName) {
+                leftSel = `finger lf${note[2]}`;
             }
-            return finger;
+            return leftSel
         });
 
-        let classes = `Keynote ${finger} ${noteName} ${this.props.octaveNum} ${noteType}`;
+        var rightSel = "";
+        selectedNotesRight.map(note => {
+
+            if (note[0] === octaveNum && note[1] === noteName) {
+                rightSel = `finger rf${note[2]}`;
+            }
+            return rightSel
+        });
+
+        let classes = `Keynote ${noteName} ${leftSel} ${rightSel} ${this.props.octaveNum} ${noteType}`;
 
         return (
 

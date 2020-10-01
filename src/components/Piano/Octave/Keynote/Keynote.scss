@@ -94,6 +94,10 @@ li.Keynote {
     bottom: 45px;
   }
 
+  &.rf0.finger::after {
+    content: "";
+    background-color: $colour-piano-rightHand;
+  }
   &.rf1.finger::after {
     content: "1";
     background-color: $colour-piano-rightHand;

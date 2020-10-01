@@ -25,21 +25,19 @@ allNotes.map(i => notes.push(i[0]));
 class Octave extends React.Component {
 
     render() {
-        const { n1, n2, octaveNum } = this.props;
+        const { firstNote, lastNote, octaveNum, selectedNotesLeft, selectedNotesRight } = this.props;
 
         //make an array for the fist octave so that it can start at the chosen note
-        const firstNote = notes.indexOf(n1); // get the index of the first note
-        const startOctave = allNotes.slice(firstNote, allNotes.length); // make array from start note
+        const firstNoteIndex = notes.indexOf(firstNote); // get the index of the first note
+        const startOctave = allNotes.slice(firstNoteIndex, allNotes.length); // make array from start note
         //make an array for the last octave so that it can end at the end note
-        const lastNote = notes.indexOf(n2);
-        const endOctave = allNotes.slice(0, lastNote + 1);
+        const lastNoteIndex = notes.indexOf(lastNote);
+        const endOctave = allNotes.slice(0, lastNoteIndex + 1);
 
-        const fingering = this.props.fingering;
         let display;
 
         //check if need to show the octave that dose not start at c
-        if (n1 !== null) {
-            // console.log("nnnn", startOctave[0]);
+        if (firstNote !== null) {
             display = startOctave.map(i =>
 
                 <Keynote
@@ -47,7 +45,8 @@ class Octave extends React.Component {
                     label={i[1]}
                     octaveNum={octaveNum}
                     key={i[0] + octaveNum}
-                    fingering={fingering}
+                    selectedNotesLeft={selectedNotesLeft}
+                    selectedNotesRight={selectedNotesRight}
                 />
             )
         } else {
@@ -58,20 +57,22 @@ class Octave extends React.Component {
                     label={i[1]}
                     octaveNum={octaveNum}
                     key={i[0] + octaveNum}
-                    fingering={fingering}
+                    selectedNotesLeft={selectedNotesLeft}
+                    selectedNotesRight={selectedNotesRight}
                 />
             )
         }
 
         //checks that last octave not finishing on b then displays to correct note
-        if (n2 !== null) {
+        if (lastNote !== null) {
             display = endOctave.map(i =>
                 <Keynote
                     note={i[0]}
                     label={i[1]}
                     octaveNum={octaveNum}
                     key={i[0] + octaveNum}
-                    fingering={fingering}
+                    selectedNotesLeft={selectedNotesLeft}
+                    selectedNotesRight={selectedNotesRight}
                 />
             )
         }

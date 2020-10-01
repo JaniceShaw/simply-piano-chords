@@ -2,73 +2,6 @@ import React from 'react';
 import Piano from './components/Piano/Piano.js';
 import Button from './components/Button/Button.js';
 
-const chords = [
-    {
-        name: "C",
-        type: "triad",
-        start: 3,
-        end: 4,
-
-        "lf5Oct": 3,
-        "lf5Note": "C",
-
-        rf1Oct: 4,
-        rf1Note: "C",
-
-        rf3Oct: 4,
-        rf3Note: "E",
-
-        rf5Oct: 4,
-        rf5Note: "G",
-    },
-    {
-        name: "Dm",
-        type: "triad",
-        start: 3,
-        end: 4,
-        // fingers: [1, 3, 5],
-        // bassFinger: 2,
-        // bassNote: "D",
-        // chordNotes: ["D", "F", "A"],
-        notes: [
-            [3, "D"],//l5
-            [],
-            [],
-            [],
-            [],
-
-            [4, "D"],//r1
-            [],
-            [4, "F"],
-            [],
-            [4, "G"],
-        ]
-    }
-];
-// console.log(chords);
-function test() {
-    var result;
-
-    chords.map(c => {
-        // console.log("boob", c.lf5Oct)
-        result = `
-            start=${c.start}
-            end=${c.end}
-            lf5={[${c.lf5Oct}, "${c.lf5Note}"]}
-        `
-
-        return result;
-    }
-
-    )
-
-
-}
-
-// console.log(test());
-// var jan = test();
-// 
-
 class Display extends React.Component {
     static defaultProps = {
         buttonTxt: "Click",
@@ -104,33 +37,43 @@ class Display extends React.Component {
     render() {
         const { displayOctave, displayNote } = this.state;
 
-
         return (
             <div className="Display">
-                <h1>C</h1>
                 <Piano
+                    title="C"
                     displayOctave={displayOctave}
                     displayNote={displayNote}
-                    start={3}
-                    end={4}
-                    lf5={[3, "C"]}
-                    rf1={[4, "C"]}
-                    rf3={[4, "E"]}
-                    rf5={[4, "G"]}
 
-                />
-
-                <Piano
-                    displayOctave={displayOctave}
-                    displayNote={false}
-
-                    start={3}
-                    end={4}
+                    startOctave={3}
+                    endOctave={4}
 
                     selectedNotesLeft={[[3, "C", 5]]}
                     selectedNotesRight={[[4, "C", 1], [4, "E", 3], [4, "G", 5]]}
                 />
 
+                <Piano
+                    title="G"
+                    displayOctave={displayOctave}
+                    displayNote={displayNote}
+
+                    startOctave={3}
+                    endOctave={4}
+
+                    selectedNotesLeft={[[3, "G", 1]]}
+                    selectedNotesRight={[[3, "B", 1], [4, "D", 2], [4, "G", 5]]}
+                />
+
+                <Piano
+                    title="D"
+                    displayOctave={displayOctave}
+                    displayNote={displayNote}
+
+                    startOctave={3}
+                    endOctave={4}
+
+                    selectedNotesLeft={[[3, "D"]]}
+                    selectedNotesRight={[[4, "D", 0], [4, "Fs", 0], [4, "A", 0]]}
+                />
 
                 <Button type="hideOctave" buttonTxt="hide Octave" click={this.handleClickOct} />
                 <Button type="hideNote" buttonTxt="hide Note name" click={this.handleClickNote} />

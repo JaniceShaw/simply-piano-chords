@@ -12,7 +12,8 @@ class Piano extends React.Component {
         displayOctave: true,
         displayNote: true,
         selectedNotesLeft: [],
-        selectedNotesRight: []
+        selectedNotesRight: [],
+        rootNote: 0
     }
 
     constructor(props) {
@@ -30,7 +31,7 @@ class Piano extends React.Component {
 
         const { startOctave, firstNote, lastNote } = this.state;
         let endOctave = this.state.endOctave;
-        const { displayOctave, displayNote, selectedNotesLeft, selectedNotesRight } = this.props;
+        const { displayOctave, displayNote, selectedNotesLeft, selectedNotesRight, rootNote } = this.props;
 
         let displayClasses = "";
 
@@ -64,10 +65,10 @@ class Piano extends React.Component {
 
 
         return (
-            <div>
-                <h1>{this.props.title}</h1>
+            <div className="Piano">
+                <h1 className="Piano__title">{this.props.title}</h1>
 
-                < ul className={"Piano " + displayClasses} >
+                < ul className={"Piano__keys " + displayClasses} >
                     {
                         oct.map(i =>
                             <Octave
@@ -77,6 +78,7 @@ class Piano extends React.Component {
                                 lastNote={i[2]}
                                 selectedNotesLeft={selectedNotesLeft}
                                 selectedNotesRight={selectedNotesRight}
+                                rootNote={rootNote}
                             />)
                     }
                 </ul >

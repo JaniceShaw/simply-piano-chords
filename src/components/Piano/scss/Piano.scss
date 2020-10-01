@@ -1,13 +1,24 @@
 @import "Piano-variables";
 
 .Piano {
-  display: inline-flex;
-  //   flex-wrap: nowrap;
-  position: relative;
-  //   border: solid 5px grey;
-  border-radius: 30px;
-  padding: 20px;
-  margin: 20px;
-  list-style: none;
-  background-color: $colour-piano-back;
+  display: inline-block;
+  margin: 2em 2em 2em 0;
+
+  &__title {
+    font-size: 5em;
+    margin-bottom: 0.2em;
+    color: $colour-piano-rightHand;
+  }
+
+  &__keys {
+    display: inline-flex;
+    //   flex-wrap: nowrap;
+    position: relative;
+    //   border: solid 5px grey;
+    border-radius: 3em;
+    padding: 2em;
+    // margin: 20px;
+    list-style: none;
+    background-color: $colour-piano-back;
+  }
 }

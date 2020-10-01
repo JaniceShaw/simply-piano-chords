@@ -2,6 +2,8 @@ import React from 'react';
 import Piano from './components/Piano/Piano.js';
 import Button from './components/Button/Button.js';
 
+import './DisplaySpChords.scss';
+
 const sp_chords = [
     {
         level: 1,
@@ -232,6 +234,7 @@ function getChords(level) {
                 endOctave={c.octEnd}
                 selectedNotesLeft={c.leftHand}
                 selectedNotesRight={c.rightHand}
+                rootNote={c.root}
             />
         } else if (c.level === level && c.startNote) {
 
@@ -242,6 +245,7 @@ function getChords(level) {
                 selectedNotesLeft={c.leftHand}
                 selectedNotesRight={c.rightHand}
                 firstNote={c.startNote}
+                rootNote={c.root}
             />
         }
     }
@@ -249,7 +253,7 @@ function getChords(level) {
 
 }
 
-class Display extends React.Component {
+class DisplaySpChords extends React.Component {
     static defaultProps = {
         buttonTxt: "Click",
     }
@@ -285,29 +289,36 @@ class Display extends React.Component {
         const { displayOctave, displayNote } = this.state;
 
         return (
-            <div className="Display">
+            <div className="DisplaySpChords">
 
-                <h1>Pop chords I</h1>
-                {getChords(1)}
-                <hr />
-                <h1>Pop chords II</h1>
-                {getChords(2)}
-                <hr />
-                <h1>Pop chords III</h1>
-                {getChords(3)}
-                <hr />
-                <h1>Blues Chords I</h1>
-                {getChords(4)}
-                <hr />
-                <h1>Jazz Chords I</h1>
-                {getChords(5)}
-                <hr />
-                <h1>Jazz Chords II</h1>
-                {getChords(6)}
+                <section className="DisplaySpChords__section">
+                    <h1 className="DisplaySpChords__section__title">Pop chords I</h1>
+                    {getChords(1)}
+                </section>
+                <section className="DisplaySpChords__section">
+                    <h1 className="DisplaySpChords__section__title">Pop chords II</h1>
+                    {getChords(2)}
+                </section>
+                <section className="DisplaySpChords__section">
+                    <h1 className="DisplaySpChords__section__title">Pop chords III</h1>
+                    {getChords(3)}
+                </section>
+                <section className="DisplaySpChords__section">
+                    <h1 className="DisplaySpChords__section__title">Blues Chords I</h1>
+                    {getChords(4)}
+                </section>
+                <section className="DisplaySpChords__section">
+                    <h1 className="DisplaySpChords__section__title">Jazz Chords I</h1>
+                    {getChords(5)}
+                </section>
+                <section className="DisplaySpChords__section">
+                    <h1 className="DisplaySpChords__section__title">Jazz Chords II</h1>
+                    {getChords(6)}
+                </section>
 
             </div>
         );
     }
 }
 
-export default Display;
+export default DisplaySpChords;

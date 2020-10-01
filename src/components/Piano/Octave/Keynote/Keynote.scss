@@ -1,14 +1,14 @@
 @import "../../scss/Piano-variables";
 
-li.Keynote {
+.Keynote {
   position: relative;
   display: inline-block;
-  height: 180px;
-  width: 40px;
+  height: 18em;
+  width: 4em;
   z-index: 1;
-  border: solid 2px rgb(53, 52, 52);
-  border-width: 3px 0px 4px 2px;
-  border-radius: 0 0 7px 7px;
+  border: solid 0.2em rgb(53, 52, 52);
+  border-width: 0.3em 0px 0.4em 0.2em;
+  border-radius: 0 0 0.7em 0.7em;
   float: left;
   background-color: ivory;
 
@@ -16,14 +16,14 @@ li.Keynote {
     background-color: rgb(61, 65, 66);
     color: ivory;
     border-color: rgb(37, 35, 35);
-    height: 95px;
-    width: 31px;
+    height: 9.5em;
+    width: 3.1em;
     position: absolute;
-    margin-left: -15px;
+    margin-left: -1.5em;
     z-index: 2;
 
-    .Keynote-label {
-      font-size: 1rem;
+    .Keynote--label {
+      font-size: 1em;
     }
   }
 
@@ -36,23 +36,19 @@ li.Keynote {
     background-color: $colour-piano-black-over;
   }
 
-  .Keynote-label {
+  .Keynote--label {
     text-align: center;
     z-index: 3;
     position: absolute;
-    bottom: 5px;
+    bottom: 0.5em;
     left: 0;
     right: 0;
-    font-size: 1.1rem;
+    font-size: 1.1em;
 
     .hideNote & {
       display: none;
     }
   }
-  // .piano li[class$="-f"] .label {
-  //   font-size: 11px;
-  //   bottom: 20px;
-  // }
 
   &.finger::after {
     content: "";
@@ -60,65 +56,115 @@ li.Keynote {
     position: absolute;
     display: inline-block;
     z-index: 3;
-    bottom: 2.2rem;
+    bottom: 2em;
     left: 0;
     right: 0;
     margin: 0 auto;
     background-color: $colour-piano-leftHand;
-    border-radius: 50%;
-    height: 2.5rem;
-    width: 2.5rem;
+    border-radius: 100%;
+    height: 2.2em;
+    width: 2.2em;
     color: white;
-    font-size: 1.3rem;
-    line-height: 2.5rem;
-
-    content: "";
+    font-size: 1.5em;
+    line-height: 2.2em;
+  }
+  //highlight root note
+  &.root.finger::after {
+    border: solid 0.2em lighten($colour-piano-leftHand, 20);
+    line-height: 1.8em;
   }
 
   &.lf1.finger::after {
     content: "1";
   }
+
   &.lf2.finger::after {
     content: "2";
   }
+
   &.lf3.finger::after {
     content: "3";
   }
+
   &.lf4.finger::after {
     content: "4";
   }
+
   &.lf5.finger::after {
     content: "5";
   }
+
   &.black.finger::after {
-    bottom: 45px;
+    bottom: 4.5em;
   }
 
   &.rf0.finger::after {
     content: "";
-    background-color: $colour-piano-rightHand;
+    background-color: $colour-piano-rightHand; //test css for root note
+    border: solid 0.2em lighten($colour-piano-rightHand, 20);
+    line-height: 1.8em;
   }
+
   &.rf1.finger::after {
     content: "1";
     background-color: $colour-piano-rightHand;
   }
+  //highlight root note
+  &.rf1.root.finger::after {
+    border: solid 0.2em lighten($colour-piano-rightHand, 20);
+    line-height: 1.8em;
+  }
+
   &.rf2.finger::after {
     content: "2";
     background-color: $colour-piano-rightHand;
   }
+  //highlight root note
+  &.rf2.root.finger::after {
+    border: solid 0.2em lighten($colour-piano-rightHand, 20);
+    line-height: 1.8em;
+  }
+
   &.rf3.finger::after {
     content: "3";
     background-color: $colour-piano-rightHand;
   }
+
+  //highlight root note
+  &.rf3.root.finger::after {
+    border: solid 0.2em lighten($colour-piano-rightHand, 20);
+    line-height: 1.8em;
+  }
+
   &.rf4.finger::after {
     content: "4";
     background-color: $colour-piano-rightHand;
   }
+  //highlight root note
+  &.rf4.root.finger::after {
+    border: solid 0.2em lighten($colour-piano-rightHand, 20);
+    line-height: 1.8em;
+  }
+
   &.rf5.finger::after {
     content: "5";
     background-color: $colour-piano-rightHand;
   }
+  //highlight root note
+  &.rf5.root.finger::after {
+    border: solid 0.2em lighten($colour-piano-rightHand, 20);
+    line-height: 1.8em;
+  }
+
   &.black.finger::after {
-    bottom: 45px;
+    bottom: 2.7em;
+    width: 1.7em;
+    height: 1.7em;
+    line-height: 1.7em;
+  }
+  //highlight root note
+  &.black.root.finger::after {
+    border: solid 0.2em lighten($colour-piano-rightHand, 20);
+    line-height: 1.3em;
   }
 }

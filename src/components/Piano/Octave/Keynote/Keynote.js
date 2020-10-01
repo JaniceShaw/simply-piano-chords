@@ -5,7 +5,7 @@ class Keynote extends React.Component {
     render() {
 
         let noteType = "white";
-        const { octaveNum, selectedNotesLeft, selectedNotesRight } = this.props;
+        const { octaveNum, selectedNotesLeft, selectedNotesRight, rootNote } = this.props;
 
         const noteName = this.props.note;
         const noteLabel = this.props.label;
@@ -21,6 +21,10 @@ class Keynote extends React.Component {
 
             if (note[0] === octaveNum && note[1] === noteName) {
                 leftSel = `finger lf${note[2]}`;
+
+                if (noteName === rootNote) {
+                    leftSel = `finger root lf${note[2]}`;
+                }
             }
             return leftSel
         });
@@ -30,6 +34,9 @@ class Keynote extends React.Component {
 
             if (note[0] === octaveNum && note[1] === noteName) {
                 rightSel = `finger rf${note[2]}`;
+                if (noteName === rootNote) {
+                    rightSel = `finger root rf${note[2]}`;
+                }
             }
             return rightSel
         });
@@ -39,7 +46,7 @@ class Keynote extends React.Component {
         return (
 
             <li className={classes}>
-                <div className="Keynote-label">{noteLabel}</div>
+                <div className="Keynote--label">{noteLabel}</div>
             </li>
 
         );

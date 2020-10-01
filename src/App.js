@@ -1,11 +1,11 @@
 import React from 'react';
-import Display from './Display-chords.js';
+import DisplaySpChords from './DisplaySpChords.js';
 
 function App() {
   return (
     <div className="App">
 
-      <Display />
+      <DisplaySpChords />
 
     </div>
   );

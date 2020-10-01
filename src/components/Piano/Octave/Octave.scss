@@ -1,17 +1,17 @@
 @import "../scss/Piano-variables";
 
 .Octave {
-  padding-bottom: 20px;
+  padding-bottom: 2em;
   position: relative;
 
-  .Octave-displayNum {
+  &__displayNum {
     position: absolute;
     color: $colour-piano-octave;
     bottom: 0px;
-    left: 4px;
+    left: 0.4em;
     text-align: center;
-    border: dashed 1px $colour-piano-octave;
-    border-radius: 0 0 7px 7px;
+    border: dashed 0.1em $colour-piano-octave;
+    border-radius: 0 0 0.7em 0.7em;
     border-top: none;
     width: 98%;
 
@@ -21,6 +21,6 @@
   }
 
   &:last-child li:last-of-type {
-    border-width: 3px 2px 4px 2px;
+    border-width: 0.3em 0.2em 0.4em 0.2em;
   }
 }

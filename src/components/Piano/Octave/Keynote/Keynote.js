@@ -46,7 +46,7 @@ class Keynote extends React.Component {
         return (
 
             <li className={classes}>
-                <div className="Keynote--label">{noteLabel}</div>
+                <div className="Keynote__label">{noteLabel}</div>
             </li>
 
         );

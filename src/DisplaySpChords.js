@@ -18,7 +18,7 @@ const sp_chords = [
     {
         level: 1,
         name: "G",
-        type: "triad",
+        type: "triad - inversion - reverse",
         root: "G",
         octStart: 3,
         octEnd: 4,
@@ -49,7 +49,7 @@ const sp_chords = [
     {
         level: 1,
         name: "Am",
-        type: "triad",
+        type: "triad - inversion - reverse",
         root: "A",
         octStart: 3,
         octEnd: 4,
@@ -61,7 +61,7 @@ const sp_chords = [
     {
         level: 2,
         name: "F",
-        type: "triad",
+        type: "triad - inversion - middle",
         root: "F",
         octStart: 3,
         octEnd: 4,
@@ -92,7 +92,7 @@ const sp_chords = [
     {
         level: 3,
         name: "A",
-        type: "triad",
+        type: "triad - inversion - reverse",
         root: "A",
         octStart: 3,
         octEnd: 4,
@@ -113,7 +113,7 @@ const sp_chords = [
     {
         level: 4,
         name: "G7",
-        type: "triad",
+        type: "seventh - inversion",
         root: "G",
         octStart: 3,
         octEnd: 4,
@@ -123,7 +123,7 @@ const sp_chords = [
     {
         level: 4,
         name: "C7",
-        type: "triad",
+        type: "seventh - inversion",
         root: "C",
         octStart: 3,
         octEnd: 4,
@@ -133,7 +133,7 @@ const sp_chords = [
     {
         level: 4,
         name: "D7",
-        type: "triad",
+        type: "seventh - inversion",
         root: "D",
         octStart: 3,
         octEnd: 4,
@@ -142,8 +142,8 @@ const sp_chords = [
     },
     {
         level: 5,
-        name: "Dm7",
-        type: "triad",
+        name: "Dm7 ",
+        type: "seventh - inversion",
         root: "D",
         octStart: 3,
         octEnd: 4,
@@ -153,7 +153,7 @@ const sp_chords = [
     {
         level: 5,
         name: "CMaj7",
-        type: "triad",
+        type: "four notes?",
         root: "C",
         octStart: 3,
         octEnd: 4,
@@ -163,7 +163,7 @@ const sp_chords = [
     {
         level: 5,
         name: "Am7",
-        type: "triad",
+        type: "seventh - inversion",
         root: "A",
         octStart: 3,
         octEnd: 4,
@@ -173,7 +173,7 @@ const sp_chords = [
     {
         level: 6,
         name: "A7",
-        type: "triad",
+        type: "seventh - inversion",
         root: "A",
         octStart: 3,
         octEnd: 4,
@@ -183,7 +183,7 @@ const sp_chords = [
     {
         level: 6,
         name: "E7",
-        type: "triad",
+        type: "seventh - inversion",
         root: "E",
         octStart: 3,
         octEnd: 4,
@@ -193,7 +193,7 @@ const sp_chords = [
     {
         level: 6,
         name: "F7",
-        type: "triad",
+        type: "seventh - inversion",
         root: "F",
         octStart: 3,
         octEnd: 4,
@@ -214,44 +214,26 @@ const sp_chords = [
     {
         level: 6,
         name: "GMaj7",
-        type: "triad",
+        type: "4 notes",
         root: "G",
         octStart: 3,
         octEnd: 4,
         leftHand: [[3, "G", 1]],
         rightHand: [[3, "B", 1], [4, "D", 2], [4, "Fs", 4]]
     },
+    {
+        level: 6,
+        name: "FMaj7",
+        type: "4 notes",
+        root: "F",
+        octStart: 3,
+        octEnd: 4,
+        leftHand: [[3, "F", 2]],
+        rightHand: [[4, "C", 1], [4, "E", 2], [4, "A", 5]]
+    },
 ];
 
-function getChords(level) {
 
-    return sp_chords.map(c => {
-        if (c.level === level && !c.startNote) {
-
-            return <Piano
-                title={c.name}
-                startOctave={c.octStart}
-                endOctave={c.octEnd}
-                selectedNotesLeft={c.leftHand}
-                selectedNotesRight={c.rightHand}
-                rootNote={c.root}
-            />
-        } else if (c.level === level && c.startNote) {
-
-            return <Piano
-                title={c.name}
-                startOctave={c.octStart}
-                endOctave={c.octEnd}
-                selectedNotesLeft={c.leftHand}
-                selectedNotesRight={c.rightHand}
-                firstNote={c.startNote}
-                rootNote={c.root}
-            />
-        }
-    }
-    )
-
-}
 
 class DisplaySpChords extends React.Component {
     static defaultProps = {
@@ -263,10 +245,12 @@ class DisplaySpChords extends React.Component {
         this.state = {
             displayOctave: true,
             displayNote: true,
+            hideNote: "Hide note names"
         };
 
         this.handleClickOct = this.handleClickOct.bind(this);
         this.handleClickNote = this.handleClickNote.bind(this);
+        this.getChords = this.getChords.bind(this);
     }
 
     handleClickOct() {
@@ -279,41 +263,79 @@ class DisplaySpChords extends React.Component {
     }
     handleClickNote() {
         if (this.state.displayNote === true) {
-            this.setState({ displayNote: false })
+            this.setState({ displayNote: false, hideNote: "Show note names" })
         } else {
-            this.setState({ displayNote: true })
+            this.setState({ displayNote: true, hideNote: "Hide note names" })
         }
     }
 
+    getChords(level) {
+
+        return sp_chords.map(c => {
+            if (c.level === level && !c.startNote) {
+                console.log("1 return");
+                return <Piano
+                    title={c.name}
+                    startOctave={c.octStart}
+                    endOctave={c.octEnd}
+                    selectedNotesLeft={c.leftHand}
+                    selectedNotesRight={c.rightHand}
+                    rootNote={c.root}
+                    displayNote={this.state.displayNote}
+                />
+            } else if (c.level === level && c.startNote) {
+                console.log("2 return")
+                return <Piano
+                    title={c.name}
+                    startOctave={c.octStart}
+                    endOctave={c.octEnd}
+                    selectedNotesLeft={c.leftHand}
+                    selectedNotesRight={c.rightHand}
+                    firstNote={c.startNote}
+                    rootNote={c.root}
+                    displayNote={this.state.displayNote}
+
+                />
+            }
+            return null
+        }
+        )
+
+    }
+
     render() {
-        const { displayOctave, displayNote } = this.state;
 
         return (
             <div className="DisplaySpChords">
 
+                <Button
+                    type="hideNote"
+                    buttonTxt={this.state.hideNote}
+                    click={this.handleClickNote} />
+
                 <section className="DisplaySpChords__section">
                     <h1 className="DisplaySpChords__section__title">Pop chords I</h1>
-                    {getChords(1)}
+                    {this.getChords(1)}
                 </section>
                 <section className="DisplaySpChords__section">
                     <h1 className="DisplaySpChords__section__title">Pop chords II</h1>
-                    {getChords(2)}
+                    {this.getChords(2)}
                 </section>
                 <section className="DisplaySpChords__section">
                     <h1 className="DisplaySpChords__section__title">Pop chords III</h1>
-                    {getChords(3)}
+                    {this.getChords(3)}
                 </section>
                 <section className="DisplaySpChords__section">
                     <h1 className="DisplaySpChords__section__title">Blues Chords I</h1>
-                    {getChords(4)}
+                    {this.getChords(4)}
                 </section>
                 <section className="DisplaySpChords__section">
                     <h1 className="DisplaySpChords__section__title">Jazz Chords I</h1>
-                    {getChords(5)}
+                    {this.getChords(5)}
                 </section>
                 <section className="DisplaySpChords__section">
                     <h1 className="DisplaySpChords__section__title">Jazz Chords II</h1>
-                    {getChords(6)}
+                    {this.getChords(6)}
                 </section>
 
             </div>

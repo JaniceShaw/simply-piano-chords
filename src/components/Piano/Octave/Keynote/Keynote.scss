@@ -9,7 +9,7 @@
   border: solid 0.2em rgb(53, 52, 52);
   border-width: 0.3em 0px 0.4em 0.2em;
   border-radius: 0 0 0.7em 0.7em;
-  float: left;
+  // float: left;
   background-color: ivory;
 
   &.black {
@@ -22,7 +22,7 @@
     margin-left: -1.5em;
     z-index: 2;
 
-    .Keynote--label {
+    .Keynote__label {
       font-size: 1em;
     }
   }
@@ -36,7 +36,7 @@
     background-color: $colour-piano-black-over;
   }
 
-  .Keynote--label {
+  &__label {
     text-align: center;
     z-index: 3;
     position: absolute;

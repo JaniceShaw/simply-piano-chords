@@ -1,13 +1,12 @@
 @import "../scss/Piano-variables";
 
 .Octave {
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   position: relative;
 
   &__displayNum {
     position: absolute;
     color: $colour-piano-octave;
-    bottom: 0px;
     left: 0.4em;
     text-align: center;
     border: dashed 0.1em $colour-piano-octave;

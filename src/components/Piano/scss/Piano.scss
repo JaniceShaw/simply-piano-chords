@@ -1,11 +1,13 @@
+@import "../../../scss/main.scss";
 @import "Piano-variables";
 
 .Piano {
   display: inline-block;
-  margin: 2em 2em 2em 0;
+  margin: 2em 0 2em 0;
+  min-width: 64em;
 
   &__title {
-    font-size: 5em;
+    font-size: 3.4em;
     margin-bottom: 0.2em;
     color: $colour-piano-rightHand;
   }
@@ -14,11 +16,11 @@
     display: inline-flex;
     //   flex-wrap: nowrap;
     position: relative;
-    //   border: solid 5px grey;
-    border-radius: 3em;
-    padding: 2em;
+    // border: solid .5em purple;
+    border-radius: 2.5em;
+    padding: 1.5em;
     // margin: 20px;
     list-style: none;
-    background-color: $colour-piano-back;
+    background-color: rgba(117, 0, 128, 0.653);
   }
 }

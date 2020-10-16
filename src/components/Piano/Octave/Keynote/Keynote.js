@@ -16,7 +16,7 @@ class Keynote extends React.Component {
             noteType = "white"
         };
 
-        var leftSel = "";
+        let leftSel = "";
         selectedNotesLeft.map(note => {
 
             if (note[0] === octaveNum && note[1] === noteName) {
@@ -29,7 +29,7 @@ class Keynote extends React.Component {
             return leftSel
         });
 
-        var rightSel = "";
+        let rightSel = "";
         selectedNotesRight.map(note => {
 
             if (note[0] === octaveNum && note[1] === noteName) {

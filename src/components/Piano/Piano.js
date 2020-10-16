@@ -26,7 +26,6 @@ class Piano extends React.Component {
         };
     }
 
-
     render() {
 
         const { startOctave, firstNote, lastNote } = this.state;
@@ -68,7 +67,7 @@ class Piano extends React.Component {
             <div className="Piano">
                 <h1 className="Piano__title">{this.props.title}</h1>
 
-                < ul className={"Piano__keys " + displayClasses} >
+                <ul className={"Piano__keys " + displayClasses} >
                     {
                         oct.map(i =>
                             <Octave

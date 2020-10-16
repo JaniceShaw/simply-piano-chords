@@ -273,7 +273,6 @@ class DisplaySpChords extends React.Component {
 
         return sp_chords.map(c => {
             if (c.level === level && !c.startNote) {
-                console.log("1 return");
                 return <Piano
                     title={c.name}
                     startOctave={c.octStart}
@@ -284,7 +283,6 @@ class DisplaySpChords extends React.Component {
                     displayNote={this.state.displayNote}
                 />
             } else if (c.level === level && c.startNote) {
-                console.log("2 return")
                 return <Piano
                     title={c.name}
                     startOctave={c.octStart}

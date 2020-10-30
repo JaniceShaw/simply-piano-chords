@@ -36,8 +36,10 @@ class Piano extends React.Component {
 
         // check to see if should display notes and octave. adds class name to Piano
         if (!displayOctave) {
-            displayClasses = "hideOctave"
+            displayClasses = " hideOctave"
         }
+
+
         if (!displayNote) {
             displayClasses += " hideNote"
         }
@@ -67,7 +69,7 @@ class Piano extends React.Component {
             <div className="Piano">
                 <h1 className="Piano__title">{this.props.title}</h1>
 
-                <ul className={"Piano__keys " + displayClasses} >
+                <ul className={"Piano__keys" + displayClasses} >
                     {
                         oct.map(i =>
                             <Octave

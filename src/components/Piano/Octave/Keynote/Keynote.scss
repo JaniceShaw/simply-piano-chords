@@ -24,6 +24,14 @@
 
     .Keynote__label {
       font-size: 1em;
+
+      @media print {
+        color: black;
+      }
+    }
+
+    @media print {
+      border-width: 0.3em;
     }
   }
 
@@ -67,11 +75,21 @@
     color: white;
     font-size: 1.5em;
     line-height: 2.2em;
+
+    @media print {
+      color: black;
+      border: solid 2px lighten($colour-piano-leftHand, 10);
+      line-height: 1.8em;
+    }
   }
   //highlight root note
   &.root.finger::after {
     border: solid 0.2em lighten($colour-piano-leftHand, 20);
     line-height: 1.8em;
+
+    @media print {
+      border: solid 2px $colour-piano-leftHand;
+    }
   }
 
   &.lf1.finger::after {
@@ -103,57 +121,91 @@
     background-color: $colour-piano-rightHand; //test css for root note
     border: solid 0.2em lighten($colour-piano-rightHand, 20);
     line-height: 1.8em;
+
+    @media print {
+      border: solid 2px lighten($colour-piano-rightHand, 20);
+    }
   }
 
   &.rf1.finger::after {
     content: "1";
     background-color: $colour-piano-rightHand;
+    @media print {
+      border: solid 2px lighten($colour-piano-rightHand, 20);
+    }
   }
   //highlight root note
   &.rf1.root.finger::after {
     border: solid 0.2em lighten($colour-piano-rightHand, 20);
     line-height: 1.8em;
+    @media print {
+      border: solid 2px $colour-piano-rightHand;
+    }
   }
 
   &.rf2.finger::after {
     content: "2";
     background-color: $colour-piano-rightHand;
+    @media print {
+      border: solid 2px lighten($colour-piano-rightHand, 20);
+    }
   }
   //highlight root note
   &.rf2.root.finger::after {
     border: solid 0.2em lighten($colour-piano-rightHand, 20);
     line-height: 1.8em;
+    @media print {
+      border: solid 2px $colour-piano-rightHand;
+    }
   }
 
   &.rf3.finger::after {
     content: "3";
     background-color: $colour-piano-rightHand;
+    @media print {
+      border: solid 2px lighten($colour-piano-rightHand, 20);
+    }
   }
 
   //highlight root note
   &.rf3.root.finger::after {
     border: solid 0.2em lighten($colour-piano-rightHand, 20);
     line-height: 1.8em;
+    @media print {
+      border: solid 2px $colour-piano-rightHand;
+    }
   }
 
   &.rf4.finger::after {
     content: "4";
     background-color: $colour-piano-rightHand;
+    @media print {
+      border: solid 2px lighten($colour-piano-rightHand, 20);
+    }
   }
   //highlight root note
   &.rf4.root.finger::after {
     border: solid 0.2em lighten($colour-piano-rightHand, 20);
     line-height: 1.8em;
+    @media print {
+      border: solid 2px $colour-piano-rightHand;
+    }
   }
 
   &.rf5.finger::after {
     content: "5";
     background-color: $colour-piano-rightHand;
+    @media print {
+      border: solid 2px lighten($colour-piano-rightHand, 20);
+    }
   }
   //highlight root note
   &.rf5.root.finger::after {
     border: solid 0.2em lighten($colour-piano-rightHand, 20);
     line-height: 1.8em;
+    @media print {
+      border: solid 2px $colour-piano-rightHand;
+    }
   }
 
   &.black.finger::after {

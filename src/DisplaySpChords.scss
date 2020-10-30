@@ -27,9 +27,24 @@
     margin-bottom: 5em;
     padding-bottom: 3em;
 
+    break-inside: avoid;
+    page-break-inside: avoid;
+
     &__title {
       font-size: 3em;
       color: purple;
+      break-after: avoid-page;
+      page-break-after: avoid;
     }
   }
+
+  @media print {
+    font-size: 54%;
+    padding: 0;
+    // border: solid 5px black;
+  }
+}
+
+@page {
+  margin: 30px 10px 30px 10px;
 }

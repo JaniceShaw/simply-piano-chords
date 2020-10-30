@@ -4,16 +4,18 @@ import './Keynote.scss';
 class Keynote extends React.Component {
     render() {
 
-        let noteType = "white";
+        // let noteType = "white";
+        let noteType = "";
         const { octaveNum, selectedNotesLeft, selectedNotesRight, rootNote } = this.props;
 
         const noteName = this.props.note;
         const noteLabel = this.props.label;
 
+
         if (noteName.length > 1) {
             noteType = "black";
-        } else {
-            noteType = "white"
+            // } else {
+            //     noteType = "white"
         };
 
         let leftSel = "";

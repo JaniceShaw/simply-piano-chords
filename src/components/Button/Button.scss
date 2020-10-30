@@ -10,4 +10,8 @@
     background-color: #ff8400;
     cursor: pointer;
   }
+
+  @media print {
+    display: none;
+  }
 }

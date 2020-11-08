@@ -1,0 +1,128 @@
+@import "../Piano/scss/Piano-variables";
+
+.NoteDisplay {
+  text-align: right;
+
+  &__trebleClef {
+    box-sizing: content-box;
+    width: 100%;
+    max-width: 14em;
+    border: solid 0.4em $colour-piano-rightHand;
+    border-radius: 1.5em;
+    display: inline-block;
+    position: relative;
+    margin: 0 6em 1em auto;
+    transition: max-width 700ms;
+
+    &:hover {
+      max-width: 25em;
+    }
+  }
+
+  &__bassClef {
+    box-sizing: content-box;
+    width: 100%;
+    max-width: 14em;
+    border: solid 0.4em $colour-piano-leftHand;
+    border-radius: 1.5em;
+    display: inline-block;
+    position: relative;
+    margin: 0 6em 1em auto;
+    transition: max-width 700ms;
+
+    &:hover {
+      max-width: 25em;
+    }
+  }
+
+  .note {
+    top: 0;
+    width: 9.4%;
+    height: 9.4%;
+    position: absolute;
+    fill: #231f20;
+    margin-left: 41.4%;
+
+    &.note_A3,
+    &.note_As3 {
+      margin-top: 61.8%;
+    }
+
+    &.note_B3 {
+      margin-top: 57.7%;
+    }
+
+    &.note_C4,
+    &.note_Cs4 {
+      margin-top: 54.4%;
+    }
+    &.note_D4,
+    &.note_Ds4 {
+      margin-top: 51.3%;
+    }
+
+    &.note_E4 {
+      margin-top: 48.1%;
+    }
+
+    &.note_F4,
+    &.note_Fs4 {
+      margin-top: 45.1%;
+    }
+
+    &.note_G4,
+    &.note_Gs4,
+    &.note_B2 {
+      margin-top: 42%;
+    }
+
+    &.note_A4,
+    &.note_C3 {
+      margin-top: 38.9%;
+    }
+
+    &.note_B4,
+    &.note_D3 {
+      margin-top: 35.7%;
+    }
+
+    &.note_C5,
+    &.note_E3 {
+      margin-top: 32.9%;
+    }
+
+    &.note_D5,
+    &.note_F3 {
+      margin-top: 29.7%;
+    }
+
+    &.note_E5,
+    &.note_G3 {
+      margin-top: 26.6%;
+    }
+
+    &.note_F5,
+    &.note_A3 {
+      margin-top: 23.4%;
+    }
+  }
+
+  &__music-lines {
+    stroke-width: 2;
+    fill: none;
+    stroke: #231f20;
+  }
+
+  &__treble-clef,
+  &__bass-clef {
+    fill: #231f20;
+  }
+}
+
+// to offset notes when 1 note appart
+.note_F4 + .note_G4 {
+  margin-left: 48%;
+}
+.note_C4 + .note_Ds4 {
+  margin-left: 48%;
+}

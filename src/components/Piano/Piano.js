@@ -1,6 +1,7 @@
 import React from 'react';
 import './scss/Piano.scss';
 import Octave from './Octave/Octave.js'
+import NoteDisplay from '../NoteDisplay/NoteDisplay.js';
 
 class Piano extends React.Component {
 
@@ -68,6 +69,8 @@ class Piano extends React.Component {
         return (
             <div className="Piano">
                 <h1 className="Piano__title">{this.props.title}</h1>
+
+                <NoteDisplay selectedNotesRight={selectedNotesRight} selectedNotesLeft={selectedNotesLeft} />
 
                 <ul className={"Piano__keys" + displayClasses} >
                     {

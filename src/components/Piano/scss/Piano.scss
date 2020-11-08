@@ -29,11 +29,11 @@
       border: solid 2px rgba(117, 0, 128, 0.653);
       padding: 15px;
       color: black;
+      background-color: transparent;
     }
   }
 
   @media print {
-    // margin-top: 20px;
     break-inside: avoid;
     page-break-inside: avoid;
     margin-right: 20px;

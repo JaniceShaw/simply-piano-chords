@@ -1,0 +1,12 @@
+<svg viewBox="0 0 660 516">
+    <g class="test" transform="scale(.75514 .8243)">
+
+        <g class="NoteDisplay__C4">
+            <path d="M522 1828h46" fill="none" stroke-width="1.55" transform="matrix(2.1357 0 0 1.9565 -761.11 -3113.825)" />
+            <g class="NoteDisplay__quarter-note10">
+                <path class="NoteDisplay__quarter-note11" d="M429.1 288.965V445.1c-8.297-7.31-24.352-7.493-38.5.204-16.076 8.751-23.586 24.358-16.775 34.86 6.813 10.505 25.366 11.925 41.443 3.175 12.009-6.534 19.229-16.895 19.283-26.097h.004V288.965h-5.454z" />
+            </g>
+        </g>
+    </g>
+
+</svg>

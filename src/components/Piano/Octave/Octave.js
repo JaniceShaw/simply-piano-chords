@@ -8,6 +8,7 @@ const allNotes = [
     ["Cs", "C\u266F D\u266D"],
     ["D", "D"],
     ["Ds", "D\u266F E\u266D"],
+    ["Ef", "D\u266F E\u266D"],
     ["E", "E"],
     ["F", "F"],
     ["Fs", "F\u266F G\u266D"],
@@ -15,6 +16,7 @@ const allNotes = [
     ["Gs", "G\u266F A\u266D"],
     ["A", "A"],
     ["As", "A\u266F B\u266D"],
+    ["Bf", "A\u266F B\u266D"],
     ["B", "B"],
 ];
 //make array that contains only note name

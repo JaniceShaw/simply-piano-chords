@@ -128,7 +128,7 @@ const sp_chords = [
         octStart: 3,
         octEnd: 4,
         leftHand: [[3, "C", 5]],
-        rightHand: [[3, "As", 1], [4, "E", 3], [4, "G", 5]]
+        rightHand: [[3, "Bf", 1], [4, "E", 3], [4, "G", 5]]
     },
     {
         level: 4,
@@ -198,7 +198,7 @@ const sp_chords = [
         octStart: 3,
         octEnd: 4,
         leftHand: [[3, "F", 2]],
-        rightHand: [[4, "C", 1], [4, "Ds", 2], [4, "A", 5]]
+        rightHand: [[4, "C", 1], [4, "Ef", 2], [4, "A", 5]]
     },
     {
         level: 6,

@@ -43,13 +43,42 @@
     fill: #231f20;
     margin-left: 41.4%;
 
+    &[class*="s"] {
+      fill: tomato;
+
+      &::before {
+        content: "S";
+        position: absolute;
+        height: 150%;
+        width: 150%;
+        left: -50%;
+      }
+    }
+
+    &[class*="f"] {
+      &::before {
+        content: "";
+        height: 220%;
+        width: 220%;
+        position: absolute;
+        left: -164%;
+        top: -112%;
+        background-color: transparent;
+        background-image: url(/flat.svg);
+        background-repeat: no-repeat;
+        background-position: top left;
+        background-size: 100% 100%;
+      }
+    }
+
     &.note_A3,
     &.note_As3 {
       margin-top: 61.8%;
     }
 
-    &.note_B3 {
-      margin-top: 57.7%;
+    &.note_B3,
+    &.note_Bf3 {
+      margin-top: 57.1%;
     }
 
     &.note_C4,
@@ -61,7 +90,8 @@
       margin-top: 51.3%;
     }
 
-    &.note_E4 {
+    &.note_E4,
+    &.note_Ef4 {
       margin-top: 48.1%;
     }
 
@@ -83,7 +113,7 @@
 
     &.note_B4,
     &.note_D3 {
-      margin-top: 35.7%;
+      margin-top: 35.5%;
     }
 
     &.note_C5,
@@ -121,8 +151,8 @@
 
 // to offset notes when 1 note appart
 .note_F4 + .note_G4 {
-  margin-left: 48%;
+  margin-left: 50%;
 }
 .note_C4 + .note_Ds4 {
-  margin-left: 48%;
+  margin-left: 50%;
 }

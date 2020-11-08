@@ -3,11 +3,11 @@
 .NoteDisplay {
   text-align: right;
 
-  &__trebleClef {
+  &__trebleClef,
+  &__bassClef {
     box-sizing: content-box;
     width: 100%;
     max-width: 14em;
-    border: solid 0.4em $colour-piano-rightHand;
     border-radius: 1.5em;
     display: inline-block;
     position: relative;
@@ -19,20 +19,12 @@
     }
   }
 
-  &__bassClef {
-    box-sizing: content-box;
-    width: 100%;
-    max-width: 14em;
-    border: solid 0.4em $colour-piano-leftHand;
-    border-radius: 1.5em;
-    display: inline-block;
-    position: relative;
-    margin: 0 6em 1em auto;
-    transition: max-width 700ms;
+  &__trebleClef {
+    border: solid 0.4em $colour-piano-rightHand;
+  }
 
-    &:hover {
-      max-width: 25em;
-    }
+  &__bassClef {
+    border: solid 0.4em $colour-piano-leftHand;
   }
 
   .note {
@@ -43,31 +35,34 @@
     fill: #231f20;
     margin-left: 41.4%;
 
-    &[class*="s"] {
-      fill: tomato;
-
-      &::before {
-        content: "S";
-        position: absolute;
-        height: 150%;
-        width: 150%;
-        left: -50%;
-      }
-    }
-
+    // sharps and flats //
+    &[class*="s"],
     &[class*="f"] {
       &::before {
         content: "";
         height: 220%;
         width: 220%;
         position: absolute;
-        left: -164%;
-        top: -112%;
         background-color: transparent;
-        background-image: url(/flat.svg);
         background-repeat: no-repeat;
         background-position: top left;
         background-size: 100% 100%;
+      }
+    }
+
+    &[class*="s"] {
+      &::before {
+        left: -164%;
+        top: -65%;
+        background-image: url(/sharp.svg);
+      }
+    }
+
+    &[class*="f"] {
+      &::before {
+        left: -164%;
+        top: -110%;
+        background-image: url(/flat.svg);
       }
     }
 
@@ -79,11 +74,36 @@
     &.note_B3,
     &.note_Bf3 {
       margin-top: 57.1%;
+      &::after {
+        content: " ";
+        background-image: url(/ledge.svg);
+        height: 100%;
+        width: 140%;
+        position: absolute;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: top left;
+        background-size: 100% 100%;
+        top: -37%;
+        left: -20%;
+      }
     }
 
     &.note_C4,
     &.note_Cs4 {
       margin-top: 54.4%;
+      &::after {
+        content: " ";
+        background-image: url(/ledge.svg);
+        height: 100%;
+        width: 140%;
+        position: absolute;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: top left;
+        background-size: 100% 100%;
+        left: -20%;
+      }
     }
     &.note_D4,
     &.note_Ds4 {
@@ -141,6 +161,11 @@
     stroke-width: 2;
     fill: none;
     stroke: #231f20;
+
+    //test for ledger line -- remove --
+    .ledge {
+      display: none;
+    }
   }
 
   &__treble-clef,

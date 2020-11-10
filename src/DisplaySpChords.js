@@ -5,6 +5,7 @@ import Button from './components/Button/Button.js';
 import './DisplaySpChords.scss';
 
 const sp_chords = [
+    // [octave, note, finger]
     {
         level: 1,
         name: "C",
@@ -153,7 +154,7 @@ const sp_chords = [
     {
         level: 5,
         name: "CMaj7",
-        type: "four notes?",
+        type: "seventh",
         root: "C",
         octStart: 3,
         octEnd: 4,
@@ -214,7 +215,7 @@ const sp_chords = [
     {
         level: 6,
         name: "GMaj7",
-        type: "4 notes",
+        type: "seventh",
         root: "G",
         octStart: 3,
         octEnd: 4,
@@ -224,7 +225,7 @@ const sp_chords = [
     {
         level: 6,
         name: "FMaj7",
-        type: "4 notes",
+        type: "seventh",
         root: "F",
         octStart: 3,
         octEnd: 4,
@@ -268,6 +269,8 @@ class DisplaySpChords extends React.Component {
             this.setState({ displayNote: true, hideNote: "Hide note names" })
         }
     }
+
+
 
     getChords(level) {
 

@@ -2,23 +2,21 @@ import React from 'react';
 import './Octave.scss';
 import Keynote from './Keynote/Keynote.js'
 
-//data  used by component
 const allNotes = [
     ["C", "C"],
-    ["Cs", "C\u266F D\u266D"],
+    [["Cs", "Df"], "C\u266F D\u266D"],
     ["D", "D"],
-    ["Ds", "D\u266F E\u266D"],
-    ["Ef", "D\u266F E\u266D"],
+    [["Ds", "Ef"], "D\u266F E\u266D"],
     ["E", "E"],
     ["F", "F"],
-    ["Fs", "F\u266F G\u266D"],
+    [["Fs", "Gf"], "F\u266F G\u266D"],
     ["G", "G"],
-    ["Gs", "G\u266F A\u266D"],
+    [["Gs", "Af"], "G\u266F A\u266D"],
     ["A", "A"],
-    ["As", "A\u266F B\u266D"],
-    ["Bf", "A\u266F B\u266D"],
+    [["As", "Bf"], "A\u266F B\u266D"],
     ["B", "B"],
 ];
+
 //make array that contains only note name
 let notes = [];
 allNotes.map(i => notes.push(i[0]));

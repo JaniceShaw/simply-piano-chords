@@ -175,9 +175,7 @@
 }
 
 // to offset notes when 1 note appart
-.note_F4 + .note_G4 {
-  margin-left: 50%;
-}
+.note_F4 + .note_G4,
 .note_C4 + .note_Ds4 {
-  margin-left: 50%;
+  margin-left: 48%;
 }

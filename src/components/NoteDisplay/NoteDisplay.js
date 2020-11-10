@@ -3,6 +3,15 @@ import './NoteDisplay.scss';
 import { ReactComponent as TrebleClef } from './svg/treble-clef-e.svg';
 import { ReactComponent as BassClef } from './svg/bass-clef.svg';
 import { ReactComponent as Note } from './svg/note.svg';
+
+// function janTest(tina) {
+
+//     var flag = document.getElementsByClassName("note_" + tina);
+//     console.log(flag);
+//     // flag.classList.add("boo");
+// }
+// janTest("C4");
+
 class NoteDisplay extends React.Component {
 
     static defaultProps = {
@@ -22,6 +31,7 @@ class NoteDisplay extends React.Component {
                         }
                     </div>
                 </div>
+
                 <div className="NoteDisplay__trebleClef">
                     <TrebleClef />
                     <div className="chord">

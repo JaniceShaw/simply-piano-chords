@@ -246,12 +246,13 @@ class DisplaySpChords extends React.Component {
         this.state = {
             displayOctave: true,
             displayNote: true,
-            hideNote: "Hide note names"
+            hideNote: "Hide note names",
         };
 
         this.handleClickOct = this.handleClickOct.bind(this);
         this.handleClickNote = this.handleClickNote.bind(this);
         this.getChords = this.getChords.bind(this);
+
     }
 
     handleClickOct() {
@@ -272,11 +273,13 @@ class DisplaySpChords extends React.Component {
 
 
 
+
     getChords(level) {
 
-        return sp_chords.map(c => {
+        return sp_chords.map((c, i) => {
             if (c.level === level && !c.startNote) {
                 return <Piano
+                    key={i}
                     title={c.name}
                     startOctave={c.octStart}
                     endOctave={c.octEnd}
@@ -287,6 +290,7 @@ class DisplaySpChords extends React.Component {
                 />
             } else if (c.level === level && c.startNote) {
                 return <Piano
+                    key={i}
                     title={c.name}
                     startOctave={c.octStart}
                     endOctave={c.octEnd}
@@ -295,7 +299,6 @@ class DisplaySpChords extends React.Component {
                     firstNote={c.startNote}
                     rootNote={c.root}
                     displayNote={this.state.displayNote}
-
                 />
             }
             return null

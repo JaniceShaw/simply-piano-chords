@@ -34,6 +34,7 @@
     position: absolute;
     fill: #231f20;
     margin-left: 41.4%;
+    
 
     // sharps and flats //
     &[class*="s"],
@@ -171,6 +172,14 @@
   &__treble-clef,
   &__bass-clef {
     fill: #231f20;
+  }
+
+  &__sel-note {
+    position: absolute;
+    margin-left: 43%;
+    margin-top: 5%;
+    font-size: 110%;
+    font-weight: bold;
   }
 }
 

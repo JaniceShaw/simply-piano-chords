@@ -2,6 +2,18 @@ import React from 'react';
 import './Keynote.scss';
 
 class Keynote extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {};
+
+        this.handelHighlight = this.handelHighlight.bind(this);
+    }
+
+    handelHighlight() {
+        this.props.highlight([this.props.note, this.props.octaveNum], true);
+    }
+
     render() {
 
         // let noteType = "white";
@@ -11,10 +23,8 @@ class Keynote extends React.Component {
         const noteName = this.props.note;
         const noteLabel = this.props.label;
 
-
         if (noteName.length > 1) {
             noteType = " black";
-
         };
 
         let leftSel = "";
@@ -32,6 +42,7 @@ class Keynote extends React.Component {
         });
 
         let rightSel = "";
+
         selectedNotesRight.map(note => {
 
             if (note[0] === octaveNum && (note[1] === noteName || note[1] === noteName[0] || note[1] === noteName[1])) {
@@ -43,14 +54,17 @@ class Keynote extends React.Component {
             }
 
             return rightSel
+
+
+
         });
 
         // let classes = `Keynote ${noteName} ${leftSel} ${rightSel} ${this.props.octaveNum} ${noteType}`;
-        let classes = `Keynote${leftSel}${rightSel}${noteType}`;
+        let classes = `Keynote${leftSel}${rightSel}${noteType} ${noteName}`;
 
         return (
 
-            <li className={classes}>
+            <li className={classes} onClick={this.handelHighlight} >
                 <div className="Keynote__label">{noteLabel}</div>
             </li >
 

@@ -23,13 +23,23 @@ class Piano extends React.Component {
             startOctave: this.props.startOctave,
             endOctave: this.props.endOctave,
             firstNote: this.props.firstNote,
-            lastNote: this.props.lastNote
+            lastNote: this.props.lastNote,
+            selNote: [],
+            noteOn: false
         };
+
+        this.highlight = this.highlight.bind(this);
+    }
+
+    highlight(clickedNote, noteState) {
+
+        this.setState({ selNote: clickedNote })
+        console.log(clickedNote, noteState);
     }
 
     render() {
 
-        const { startOctave, firstNote, lastNote } = this.state;
+        const { startOctave, firstNote, lastNote, selNote, noteOn } = this.state;
         let endOctave = this.state.endOctave;
         const { displayOctave, displayNote, selectedNotesLeft, selectedNotesRight, rootNote } = this.props;
 
@@ -70,7 +80,7 @@ class Piano extends React.Component {
             <div className="Piano">
                 <h1 className="Piano__title">{this.props.title}</h1>
 
-                <NoteDisplay selectedNotesRight={selectedNotesRight} selectedNotesLeft={selectedNotesLeft} />
+                <NoteDisplay selectedNotesRight={selectedNotesRight} selectedNotesLeft={selectedNotesLeft} selNote={selNote} noteOn={noteOn} />
 
                 <ul className={"Piano__keys" + displayClasses} >
                     {
@@ -83,6 +93,7 @@ class Piano extends React.Component {
                                 selectedNotesLeft={selectedNotesLeft}
                                 selectedNotesRight={selectedNotesRight}
                                 rootNote={rootNote}
+                                highlight={this.highlight}
                             />)
                     }
                 </ul >

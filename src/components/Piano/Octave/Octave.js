@@ -25,7 +25,7 @@ allNotes.map(i => notes.push(i[0]));
 class Octave extends React.Component {
 
     render() {
-        const { firstNote, lastNote, octaveNum, selectedNotesLeft, selectedNotesRight, rootNote } = this.props;
+        const { firstNote, lastNote, octaveNum, selectedNotesLeft, selectedNotesRight, rootNote, highlight } = this.props;
 
         //make an array for the fist octave so that it can start at the chosen note
         const firstNoteIndex = notes.indexOf(firstNote); // get the index of the first note
@@ -48,6 +48,7 @@ class Octave extends React.Component {
                     selectedNotesLeft={selectedNotesLeft}
                     selectedNotesRight={selectedNotesRight}
                     rootNote={rootNote}
+                    highlight={highlight}
                 />
             )
         } else {
@@ -61,6 +62,7 @@ class Octave extends React.Component {
                     selectedNotesLeft={selectedNotesLeft}
                     selectedNotesRight={selectedNotesRight}
                     rootNote={rootNote}
+                    highlight={highlight}
                 />
             )
         }
@@ -76,6 +78,7 @@ class Octave extends React.Component {
                     selectedNotesLeft={selectedNotesLeft}
                     selectedNotesRight={selectedNotesRight}
                     rootNote={rootNote}
+                    highlight={highlight}
                 />
             )
         }

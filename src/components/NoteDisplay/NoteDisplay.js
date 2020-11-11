@@ -12,6 +12,8 @@ import { ReactComponent as Note } from './svg/note.svg';
 // }
 // janTest("C4");
 
+//selNote == props.selNot (["C",4]) -- how do i use this to highlight the note??
+
 class NoteDisplay extends React.Component {
 
     static defaultProps = {
@@ -21,21 +23,24 @@ class NoteDisplay extends React.Component {
 
     render() {
 
+        const { selectedNotesLeft, selectedNotesRight, selNote } = this.props;
+
         return (
             <div className="NoteDisplay">
 
                 <div className="NoteDisplay__bassClef">
                     <BassClef />
                     <div className="chord">
-                        {this.props.selectedNotesLeft.map((n, i) => <div key={i} className={'note note_' + n[1] + n[0]}><Note /></div>)
+                        {selectedNotesLeft.map((n, i) => <div key={i} className={'note note_' + n[1] + n[0]}><Note /></div>)
                         }
                     </div>
                 </div>
 
                 <div className="NoteDisplay__trebleClef">
+                    <div className="NoteDisplay__sel-note">{selNote[0]}</div>
                     <TrebleClef />
                     <div className="chord">
-                        {this.props.selectedNotesRight.map((n, i) => <div key={i} className={'note note_' + n[1] + n[0]}><Note /></div>)
+                        {selectedNotesRight.map((n, i) => <div key={i} className={'note note_' + n[1] + n[0]}><Note /></div>)
                         }
                     </div>
                 </div>

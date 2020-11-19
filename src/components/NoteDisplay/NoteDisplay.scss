@@ -1,7 +1,17 @@
 @import "../Piano/scss/Piano-variables";
 
+//X position of the note
+$xn: 138px;
+
 .NoteDisplay {
   text-align: right;
+
+  i {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
   &__trebleClef,
   &__bassClef {
@@ -17,160 +27,195 @@
     &:hover {
       max-width: 25em;
     }
+
+    .note {
+      top: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      fill: #231f20;
+
+      // sharps and flats //
+      // &[class*="s"],
+      // &[class*="f"] {
+      //   // border: solid 1px green;
+      //   &::before {
+      //     // border: solid 1px red;
+      //     // content: "";
+      //     height: 100%;
+      //     width: 100%;
+      //     position: absolute;
+      //     background-color: transparent;
+      //     background-repeat: no-repeat;
+      //     background-position: top left;
+      //     background-size: 100% 100%;
+
+      //     // .sharp,
+      //     // .flat {
+      //     //   fill: red;
+      //     // }
+      //   }
+      // }
+
+      // &[class*="s"] {
+      //   &::before {
+      //     // left: -164%;
+      //     // top: -65%;
+      //     left: 0;
+      //     top: 0;
+      //     background-image: url(/sharp.svg);
+      //   }
+      // }
+
+      // &[class*="f"] {
+      //   &::before {
+      //     // left: -164%;
+      //     // top: -110%;
+      //     background-image: url(/flat.svg);
+      //   }
+      // }
+    }
   }
 
   &__trebleClef {
     border: solid 0.4em $colour-piano-rightHand;
+
+    .note {
+      &.note_B3 .theNote,
+      &.note_Bf3 .theNote {
+        transform: translate($xn, 180.2px);
+      }
+
+      &.note_Bf3 .flat {
+        transform: translate($xn - 20px, 159px);
+      }
+
+      &.note_C4 .theNote,
+      &.note_Cs4 .theNote {
+        transform: translate($xn, 170.7px);
+      }
+
+      &.note_C4 .ledger,
+      &.note_Cs4 .ledger,
+      &.note_B3 .ledger,
+      &.note_Bf3 .ledger {
+        transform: translate($xn - 5px, 170.7px);
+      }
+
+      &.note_Cs4 .sharp {
+        transform: translate($xn - 20px, 151.6px);
+      }
+
+      &.note_D4 .theNote,
+      &.note_Ds4 .theNote {
+        transform: translate($xn, 161.1px);
+      }
+      &.note_Ds4 .sharp {
+        transform: translate($xn - 20px, 142px);
+      }
+
+      &.note_E4 .theNote,
+      &.note_Ef4 .theNote {
+        transform: translate($xn, 151.6px);
+      }
+      &.note_Ef4 .flat {
+        transform: translate($xn - 20px, 130px);
+      }
+
+      &.note_F4 .theNote,
+      &.note_Fs4 .theNote {
+        transform: translate($xn, 142px);
+      }
+      &.note_Fs4 .sharp {
+        transform: translate($xn - 20px, 122.9px);
+      }
+
+      &.note_G4 .theNote,
+      &.note_Gs4 .theNote {
+        transform: translate($xn, 132.5px);
+      }
+      &.note_Gs4 .sharp {
+        transform: translate($xn - 20px, 113.4px);
+      }
+
+      &.note_A4 .theNote {
+        transform: translate($xn, 122.9px);
+      }
+
+      &.note_B4 .theNote {
+        transform: translate($xn, 113.4px);
+      }
+
+      &.note_C5 .theNote {
+        transform: translate($xn, 103.8px);
+      }
+
+      &.note_D5 .theNote {
+        transform: translate($xn, 94.3px);
+      }
+
+      &.note_E5 .theNote {
+        transform: translate($xn, 84.7px);
+      }
+
+      &.note_F5 .theNote,
+      &.note_A3 .theNote {
+        transform: translate($xn, 75.2px);
+      }
+    }
   }
 
   &__bassClef {
     border: solid 0.4em $colour-piano-leftHand;
-  }
-
-  .note {
-    top: 0;
-    width: 9.4%;
-    height: 9.4%;
-    position: absolute;
-    fill: #231f20;
-    margin-left: 41.4%;
-    
-
-    // sharps and flats //
-    &[class*="s"],
-    &[class*="f"] {
-      &::before {
-        content: "";
-        height: 220%;
-        width: 220%;
-        position: absolute;
-        background-color: transparent;
-        background-repeat: no-repeat;
-        background-position: top left;
-        background-size: 100% 100%;
+    .note {
+      &.note_B2 .theNote {
+        transform: translate($xn, 132.5px);
       }
-    }
 
-    &[class*="s"] {
-      &::before {
-        left: -164%;
-        top: -65%;
-        background-image: url(/sharp.svg);
+      &.note_C3 .theNote {
+        transform: translate($xn, 122.9px);
       }
-    }
 
-    &[class*="f"] {
-      &::before {
-        left: -164%;
-        top: -110%;
-        background-image: url(/flat.svg);
+      &.note_D3 .theNote {
+        transform: translate($xn, 113.4px);
       }
-    }
 
-    &.note_A3,
-    &.note_As3 {
-      margin-top: 61.8%;
-    }
-
-    &.note_B3,
-    &.note_Bf3 {
-      margin-top: 57.1%;
-      &::after {
-        content: " ";
-        background-image: url(/ledge.svg);
-        height: 100%;
-        width: 140%;
-        position: absolute;
-        background-color: transparent;
-        background-repeat: no-repeat;
-        background-position: top left;
-        background-size: 100% 100%;
-        top: -37%;
-        left: -20%;
+      &.note_E3 .theNote {
+        transform: translate($xn, 103.8px);
       }
-    }
 
-    &.note_C4,
-    &.note_Cs4 {
-      margin-top: 54.4%;
-      &::after {
-        content: " ";
-        background-image: url(/ledge.svg);
-        height: 100%;
-        width: 140%;
-        position: absolute;
-        background-color: transparent;
-        background-repeat: no-repeat;
-        background-position: top left;
-        background-size: 100% 100%;
-        left: -20%;
+      &.note_F3 .theNote {
+        transform: translate($xn, 94.3px);
       }
-    }
-    &.note_D4,
-    &.note_Ds4 {
-      margin-top: 51.3%;
-    }
 
-    &.note_E4,
-    &.note_Ef4 {
-      margin-top: 48.1%;
-    }
+      &.note_G3 .theNote {
+        transform: translate($xn, 84.7px);
+      }
 
-    &.note_F4,
-    &.note_Fs4 {
-      margin-top: 45.1%;
-    }
+      &.note_A3 .theNote,
+      &.note_As3 .theNote {
+        transform: translate($xn, 75.2px);
+      }
 
-    &.note_G4,
-    &.note_Gs4,
-    &.note_B2 {
-      margin-top: 42%;
-    }
-
-    &.note_A4,
-    &.note_C3 {
-      margin-top: 38.9%;
-    }
-
-    &.note_B4,
-    &.note_D3 {
-      margin-top: 35.5%;
-    }
-
-    &.note_C5,
-    &.note_E3 {
-      margin-top: 32.9%;
-    }
-
-    &.note_D5,
-    &.note_F3 {
-      margin-top: 29.7%;
-    }
-
-    &.note_E5,
-    &.note_G3 {
-      margin-top: 26.6%;
-    }
-
-    &.note_F5,
-    &.note_A3 {
-      margin-top: 23.4%;
+      &.note_B3 .theNote,
+      &.note_Bf3 .theNote {
+        transform: translate($xn, 65.6px);
+      }
     }
   }
 
-  &__music-lines {
-    stroke-width: 2;
+  &__music-lines,
+  .ledger {
+    stroke-width: 2px;
     fill: none;
     stroke: #231f20;
-
-    //test for ledger line -- remove --
-    .ledge {
-      display: none;
-    }
   }
 
   &__treble-clef,
-  &__bass-clef {
+  &__bass-clef,
+  .sharp,
+  .flat,
+  .theNote {
     fill: #231f20;
   }
 
@@ -186,5 +231,5 @@
 // to offset notes when 1 note appart
 .note_F4 + .note_G4,
 .note_C4 + .note_Ds4 {
-  margin-left: 48%;
+  margin-left: 5%;
 }

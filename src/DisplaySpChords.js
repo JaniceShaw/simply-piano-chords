@@ -318,27 +318,27 @@ class DisplaySpChords extends React.Component {
                     click={this.handleClickNote} />
 
                 <section className="DisplaySpChords__section">
-                    <h1 className="DisplaySpChords__section__title">Pop chords I</h1>
+                    <h2 className="DisplaySpChords__section__title">Pop chords I</h2>
                     {this.getChords(1)}
                 </section>
                 <section className="DisplaySpChords__section">
-                    <h1 className="DisplaySpChords__section__title">Pop chords II</h1>
+                    <h2 className="DisplaySpChords__section__title">Pop chords II</h2>
                     {this.getChords(2)}
                 </section>
                 <section className="DisplaySpChords__section">
-                    <h1 className="DisplaySpChords__section__title">Pop chords III</h1>
+                    <h2 className="DisplaySpChords__section__title">Pop chords III</h2>
                     {this.getChords(3)}
                 </section>
                 <section className="DisplaySpChords__section">
-                    <h1 className="DisplaySpChords__section__title">Blues Chords I</h1>
+                    <h2 className="DisplaySpChords__section__title">Blues Chords I</h2>
                     {this.getChords(4)}
                 </section>
                 <section className="DisplaySpChords__section">
-                    <h1 className="DisplaySpChords__section__title">Jazz Chords I</h1>
+                    <h2 className="DisplaySpChords__section__title">Jazz Chords I</h2>
                     {this.getChords(5)}
                 </section>
                 <section className="DisplaySpChords__section">
-                    <h1 className="DisplaySpChords__section__title">Jazz Chords II</h1>
+                    <h2 className="DisplaySpChords__section__title">Jazz Chords II</h2>
                     {this.getChords(6)}
                 </section>
 

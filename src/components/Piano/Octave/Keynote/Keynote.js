@@ -22,6 +22,7 @@ class Keynote extends React.Component {
 
         const noteName = this.props.note;
         const noteLabel = this.props.label;
+       
 
         if (noteName.length > 1) {
             noteType = " black";
@@ -54,8 +55,6 @@ class Keynote extends React.Component {
             }
 
             return rightSel
-
-
 
         });
 

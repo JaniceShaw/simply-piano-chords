@@ -25,21 +25,98 @@ class Piano extends React.Component {
             firstNote: this.props.firstNote,
             lastNote: this.props.lastNote,
             selNote: [],
-            noteOn: false
+            selNoteR: [],
+            noteOn: false,
+            RHand: false,
+            LHand: false
         };
 
         this.highlight = this.highlight.bind(this);
     }
 
-    highlight(clickedNote, noteState) {
+    highlight(clickedNote, hand) {
 
-        this.setState({ selNote: clickedNote })
-        console.log(clickedNote, noteState);
+        let left = this.props.selectedNotesLeft;  // [[3, "C", 5]]
+        let right = this.props.selectedNotesRight; // [[4, "C", 1],[4, "E", 3],[4, "G", 5]]
+
+        let rh = false;
+        let lh = false;
+        let flatSharpR;
+
+        //Right hand -- check is in the same octave
+        if (clickedNote[1] === right[0][0] || clickedNote[1] === right[1][0] || clickedNote[1] === right[2][0]) {
+            //check to see if the clicked note was a sharp/flat
+            if (clickedNote[0].length > 1) {
+                // find out if it was a flat or sharp clicked on
+                if (right[0][1] === clickedNote[0][0] ||
+                    right[1][1] === clickedNote[0][0] ||
+                    right[2][1] === clickedNote[0][0]) {
+                    flatSharpR = [[clickedNote[0][0]], [clickedNote[1]]];
+                    rh = true;
+                } else if (right[0][1] === clickedNote[0][1] ||
+                    right[1][1] === clickedNote[0][1] ||
+                    right[2][1] === clickedNote[0][1]) {
+                    flatSharpR = [[clickedNote[0][1]], [clickedNote[1]]];
+                    rh = true;
+                } else {
+                    flatSharpR = "";
+                }
+
+                this.setState({ selNoteR: flatSharpR, RHand: rh })
+            } else if
+
+                // check white notes
+                (
+                (right[0][1] === clickedNote[0] && right[0][0] === clickedNote[1]) ||
+                (right[1][1] === clickedNote[0] && right[1][0] === clickedNote[1]) ||
+                (right[2][1] === clickedNote[0] && right[2][0] === clickedNote[1])
+            ) {
+                this.setState({ selNoteR: clickedNote, RHand: true })
+                // RHand = true;
+            } else {
+                this.setState({ selNoteR: [], RHand: false })
+            }
+
+
+        } else {
+            this.setState({ selNoteR: [], RHand: false })
+        }
+
+
+        //LEFT hand -- check is in the same octave
+
+        let flatSharp;
+        if (clickedNote[1] === left[0][0]) {
+            //check to see if the clicked note was a sharp/flat
+            if (clickedNote[0].length > 1) {
+                // find out if it was a flat or sharp clicked on
+                if (left[0][1] === clickedNote[0][0]) {
+                    flatSharp = [[clickedNote[0][0]], [clickedNote[1]]];
+                    lh = true;
+                } else if (left[0][1] === clickedNote[0][1]) {
+                    flatSharp = [[clickedNote[0][1]], [clickedNote[1]]];
+                    lh = true;
+                } else {
+                    flatSharp = "";
+                }
+                this.setState({ selNote: flatSharp, LHand: lh })
+            } else if
+                // check white notes
+                (left[0][1] === clickedNote[0] && left[0][0] === clickedNote[1]) {
+                this.setState({ selNote: clickedNote, LHand: true })
+                // RHand = true;
+            } else {
+                this.setState({ selNote: [], LHand: false })
+            }
+
+        } else {
+            this.setState({ selNote: [], LHand: false })
+        }
     }
 
     render() {
 
-        const { startOctave, firstNote, lastNote, selNote, noteOn } = this.state;
+        const { startOctave, firstNote, lastNote, selNote, selNoteR, noteOn, RHand, LHand } = this.state;
         let endOctave = this.state.endOctave;
         const { displayOctave, displayNote, selectedNotesLeft, selectedNotesRight, rootNote } = this.props;
 
@@ -75,12 +152,19 @@ class Piano extends React.Component {
             n = n + 1;
         }
 
-
         return (
             <div className="Piano">
-                <h1 className="Piano__title">{this.props.title}</h1>
+                <h3 className="Piano__title">{this.props.title}</h3>
 
-                <NoteDisplay selectedNotesRight={selectedNotesRight} selectedNotesLeft={selectedNotesLeft} selNote={selNote} noteOn={noteOn} />
+                <NoteDisplay
+                    selectedNotesRight={selectedNotesRight}
+                    selectedNotesLeft={selectedNotesLeft}
+                    selNote={selNote}
+                    selNoteR={selNoteR}
+                    noteOn={noteOn}
+                    RHand={RHand}
+                    LHand={LHand}
+                />
 
                 <ul className={"Piano__keys" + displayClasses} >
                     {

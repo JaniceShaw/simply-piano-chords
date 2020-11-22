@@ -3,8 +3,13 @@
 .DisplaySpChords {
   // font-size will resize all elements in piano as uses em
   // use for responsive easy resize all
-  font-size: 120%;
+  font-size: 100%;
   padding: 3em;
+
+  @include respond(big-desktop) {
+    font-size: 120%;
+    // padding: 3em;
+  }
 
   @include respond(tab-port) {
     font-size: 95%;

@@ -85,8 +85,8 @@
   }
   //highlight root note
   &.root.finger::after {
-    border: solid 0.2em lighten($colour-piano-leftHand, 20);
-    line-height: 1.8em;
+    border: solid 0.2em darken($colour-piano-leftHand, 10);
+    line-height: 1.7em;
 
     @media print {
       border: solid 2px $colour-piano-leftHand;
@@ -137,8 +137,8 @@
   }
   //highlight root note
   &.rf1.root.finger::after {
-    border: solid 0.2em lighten($colour-piano-rightHand, 20);
-    line-height: 1.8em;
+    border: solid 0.2em darken($colour-piano-rightHand, 15);
+    line-height: 1.7em;
     @media print {
       border: solid 2px $colour-piano-rightHand;
     }
@@ -153,7 +153,7 @@
   }
   //highlight root note
   &.rf2.root.finger::after {
-    border: solid 0.2em lighten($colour-piano-rightHand, 20);
+    border: solid 0.2em darken($colour-piano-rightHand, 15);
     line-height: 1.8em;
     @media print {
       border: solid 2px $colour-piano-rightHand;
@@ -170,7 +170,7 @@
 
   //highlight root note
   &.rf3.root.finger::after {
-    border: solid 0.2em lighten($colour-piano-rightHand, 20);
+    border: solid 0.2em darken($colour-piano-rightHand, 15);
     line-height: 1.8em;
     @media print {
       border: solid 2px $colour-piano-rightHand;
@@ -186,7 +186,7 @@
   }
   //highlight root note
   &.rf4.root.finger::after {
-    border: solid 0.2em lighten($colour-piano-rightHand, 20);
+    border: solid 0.2em darken($colour-piano-rightHand, 15);
     line-height: 1.8em;
     @media print {
       border: solid 2px $colour-piano-rightHand;
@@ -202,7 +202,7 @@
   }
   //highlight root note
   &.rf5.root.finger::after {
-    border: solid 0.2em lighten($colour-piano-rightHand, 20);
+    border: solid 0.2em darken($colour-piano-rightHand, 15);
     line-height: 1.8em;
     @media print {
       border: solid 2px $colour-piano-rightHand;

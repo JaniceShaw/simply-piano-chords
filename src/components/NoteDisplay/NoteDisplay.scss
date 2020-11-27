@@ -6,6 +6,13 @@ $xn: 138px;
 .NoteDisplay {
   text-align: right;
 
+  &__music-lines,
+  .ledger {
+    stroke-width: 2px;
+    fill: none;
+    stroke: #231f20;
+  }
+
   i {
     z-index: 200;
     position: absolute;
@@ -167,7 +174,10 @@ $xn: 138px;
       &.selNote {
         .theNote {
           fill: $colour-piano-rightHand;
-          // z-index: 400;
+        }
+
+        .ledger {
+          stroke: $colour-piano-rightHand;
         }
       }
     }
@@ -213,17 +223,12 @@ $xn: 138px;
       &.selNote {
         .theNote {
           fill: $colour-piano-leftHand;
-          // z-index: 400;
+        }
+        .ledger {
+          stroke: $colour-piano-leftHand;
         }
       }
     }
-  }
-
-  &__music-lines,
-  .ledger {
-    stroke-width: 2px;
-    fill: none;
-    stroke: #231f20;
   }
 
   &__treble-clef,

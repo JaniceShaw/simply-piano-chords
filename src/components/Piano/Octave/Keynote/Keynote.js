@@ -18,11 +18,11 @@ class Keynote extends React.Component {
 
         // let noteType = "white";
         let noteType = "";
-        const { octaveNum, selectedNotesLeft, selectedNotesRight, rootNote } = this.props;
+        const { octaveNum, selectedNotesLeft, selectedNotesRight, rootNote, noteDisplayShow } = this.props;
 
         const noteName = this.props.note;
         const noteLabel = this.props.label;
-       
+
 
         if (noteName.length > 1) {
             noteType = " black";
@@ -63,9 +63,10 @@ class Keynote extends React.Component {
 
         return (
 
-            <li className={classes} onClick={this.handelHighlight} >
-                <div className="Keynote__label">{noteLabel}</div>
-            </li >
+
+            <li className={classes} onClick={noteDisplayShow ? this.handelHighlight : null}>
+                <div className="Keynote__label" > {noteLabel}</div>
+            </li>
 
         );
     }

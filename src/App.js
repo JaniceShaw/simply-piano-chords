@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
 
+      <div className="menu"><h1>Simply Piano Chords</h1></div>
       <DisplaySpChords />
       {/* <NoteDisplay /> */}
 

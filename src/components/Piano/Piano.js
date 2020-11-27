@@ -10,25 +10,25 @@ class Piano extends React.Component {
         endOctave: 4, // octave to end at this needs to change if less than start
         firstNote: "C", // start note if not C
         lastNote: "B", // end note if not B
-        displayOctave: true,
-        displayNote: true,
+        displayNote: true, // the note names on keyboard
         selectedNotesLeft: [],
         selectedNotesRight: [],
-        rootNote: 0
+        rootNote: 0, // if no root note is selected
+        noteDisplayShow: true
     }
 
     constructor(props) {
         super(props);
         this.state = {
-            startOctave: this.props.startOctave,
-            endOctave: this.props.endOctave,
-            firstNote: this.props.firstNote,
-            lastNote: this.props.lastNote,
+            startOctave: this.props.startOctave,  // added incase make dynamic
+            endOctave: this.props.endOctave, // added incase make dynamic
+            firstNote: this.props.firstNote, // added incase make dynamic
+            lastNote: this.props.lastNote, // added incase make dynamic
             selNote: [],
             selNoteR: [],
-            noteOn: false,
-            RHand: false,
-            LHand: false
+            // noteOn: false,  //think don't need delete if everything is working
+            RHand: false, // used in highlight 
+            LHand: false, // used in highlight 
         };
 
         this.highlight = this.highlight.bind(this);
@@ -44,18 +44,27 @@ class Piano extends React.Component {
         let flatSharpR;
 
         //Right hand -- check is in the same octave
-        if (clickedNote[1] === right[0][0] || clickedNote[1] === right[1][0] || clickedNote[1] === right[2][0]) {
+        if (
+            clickedNote[1] === right[0][0] ||
+            clickedNote[1] === right[1][0] ||
+            clickedNote[1] === right[2][0]
+        ) {
+
             //check to see if the clicked note was a sharp/flat
             if (clickedNote[0].length > 1) {
-                // find out if it was a flat or sharp clicked on
-                if (right[0][1] === clickedNote[0][0] ||
-                    right[1][1] === clickedNote[0][0] ||
-                    right[2][1] === clickedNote[0][0]) {
+                // find out if it was a flat or sharp clicked on and that the octave matches
+                if (
+                    (right[0][1] === clickedNote[0][0] && clickedNote[1] === right[0][0]) ||
+                    (right[1][1] === clickedNote[0][0] && clickedNote[1] === right[1][0]) ||
+                    (right[2][1] === clickedNote[0][0] && clickedNote[1] === right[2][0])
+                ) {
                     flatSharpR = [[clickedNote[0][0]], [clickedNote[1]]];
                     rh = true;
-                } else if (right[0][1] === clickedNote[0][1] ||
-                    right[1][1] === clickedNote[0][1] ||
-                    right[2][1] === clickedNote[0][1]) {
+                } else if (
+                    (right[0][1] === clickedNote[0][1] && clickedNote[1] === right[0][0]) ||
+                    (right[1][1] === clickedNote[0][1] && clickedNote[1] === right[1][0]) ||
+                    (right[2][1] === clickedNote[0][1] && clickedNote[1] === right[2][0])
+                ) {
                     flatSharpR = [[clickedNote[0][1]], [clickedNote[1]]];
                     rh = true;
                 } else {
@@ -116,18 +125,19 @@ class Piano extends React.Component {
 
     render() {
 
-        const { startOctave, firstNote, lastNote, selNote, selNoteR, noteOn, RHand, LHand } = this.state;
+        const { startOctave, firstNote, lastNote, selNote, selNoteR, RHand, LHand } = this.state;
         let endOctave = this.state.endOctave;
-        const { displayOctave, displayNote, selectedNotesLeft, selectedNotesRight, rootNote } = this.props;
+        const { noteDisplayShow, displayNote, selectedNotesLeft, selectedNotesRight, rootNote } = this.props;
 
         let displayClasses = "";
+        // let displayNotationClass = "";
 
-        // check to see if should display notes and octave. adds class name to Piano
-        if (!displayOctave) {
-            displayClasses = " hideOctave"
-        }
+        // check to see if should display notation. adds class name to NoteDisplay
+        // if (!displayNotation) {
+        //     displayNotationClass = " hideOctave"
+        // }
 
-
+        // check to see if should display note names and notation. adds class name to Piano__keys
         if (!displayNote) {
             displayClasses += " hideNote"
         }
@@ -156,15 +166,18 @@ class Piano extends React.Component {
             <div className="Piano">
                 <h3 className="Piano__title">{this.props.title}</h3>
 
-                <NoteDisplay
-                    selectedNotesRight={selectedNotesRight}
-                    selectedNotesLeft={selectedNotesLeft}
-                    selNote={selNote}
-                    selNoteR={selNoteR}
-                    noteOn={noteOn}
-                    RHand={RHand}
-                    LHand={LHand}
-                />
+                {noteDisplayShow &&
+                    <NoteDisplay
+                        selectedNotesRight={selectedNotesRight}
+                        selectedNotesLeft={selectedNotesLeft}
+                        selNote={selNote}
+                        selNoteR={selNoteR}
+
+                        RHand={RHand}
+                        LHand={LHand}
+                    />
+                }
+
 
                 <ul className={"Piano__keys" + displayClasses} >
                     {
@@ -178,6 +191,7 @@ class Piano extends React.Component {
                                 selectedNotesRight={selectedNotesRight}
                                 rootNote={rootNote}
                                 highlight={this.highlight}
+                                noteDisplayShow={noteDisplayShow}
                             />)
                     }
                 </ul >

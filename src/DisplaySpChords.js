@@ -244,25 +244,27 @@ class DisplaySpChords extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            displayOctave: true,
-            displayNote: true,
-            hideNote: "Hide note names",
+            noteDisplayShow: true, // for toggling the notation area "NoteDisplay" component
+            displayNote: true, //show note names on keys
+            hideNote: "Hide note names", // button text hide note names
+            hideNotation: "Hide Notations"
         };
 
-        this.handleClickOct = this.handleClickOct.bind(this);
+        this.handleClickDisplayNote = this.handleClickDisplayNote.bind(this);
         this.handleClickNote = this.handleClickNote.bind(this);
         this.getChords = this.getChords.bind(this);
 
     }
 
-    handleClickOct() {
-        if (this.state.displayOctave === true) {
-            this.setState({ displayOctave: false });
+    handleClickDisplayNote() {
+        if (this.state.noteDisplayShow === true) {
+            this.setState({ noteDisplayShow: false, hideNotation: "Show notations" });
         } else {
-            this.setState({ displayOctave: true });
+            this.setState({ noteDisplayShow: true, hideNotation: "Hide notations" });
         }
 
     }
+
     handleClickNote() {
         if (this.state.displayNote === true) {
             this.setState({ displayNote: false, hideNote: "Show note names" })
@@ -287,6 +289,7 @@ class DisplaySpChords extends React.Component {
                     selectedNotesRight={c.rightHand}
                     rootNote={c.root}
                     displayNote={this.state.displayNote}
+                    noteDisplayShow={this.state.noteDisplayShow}
                 />
             } else if (c.level === level && c.startNote) {
                 return <Piano
@@ -299,6 +302,7 @@ class DisplaySpChords extends React.Component {
                     firstNote={c.startNote}
                     rootNote={c.root}
                     displayNote={this.state.displayNote}
+                    noteDisplayShow={this.state.noteDisplayShow}
                 />
             }
             return null
@@ -312,10 +316,18 @@ class DisplaySpChords extends React.Component {
         return (
             <div className="DisplaySpChords">
 
-                <Button
-                    type="hideNote"
-                    buttonTxt={this.state.hideNote}
-                    click={this.handleClickNote} />
+                <div className="DisplaySpChords__options">
+
+                    <Button
+                        type="hideNote"
+                        buttonTxt={this.state.hideNote}
+                        click={this.handleClickNote} />
+
+                    <Button
+                        type="hideNote"
+                        buttonTxt={this.state.hideNotation}
+                        click={this.handleClickDisplayNote} />
+                </div>
 
                 <section className="DisplaySpChords__section">
                     <h2 className="DisplaySpChords__section__title">Pop chords I</h2>

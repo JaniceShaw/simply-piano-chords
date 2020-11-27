@@ -19,30 +19,35 @@ ORDER: Base + typography > general layout + grid > page layout > components
 1em = 16px
 */
 @mixin respond($breakpoint) {
-  @if $breakpoint == phone-old {
-    @media only screen and (max-width: 21.5em) {
+  @if $breakpoint == phone-sml {
+    @media only screen and (max-width: 29em) {
       @content;
-    } //600px
+    } //344px
   }
-  @if $breakpoint == phone {
-    @media only screen and (max-width: 35.5em) {
+  @if $breakpoint == phone-port {
+    @media only screen and (max-width: 36em) {
       @content;
-    } //600px
+    } //344px
+  }
+  @if $breakpoint == phone-land {
+    @media only screen and (max-width: 43em) {
+      @content;
+    } //608px
   }
   @if $breakpoint == tab-port {
-    @media only screen and (max-width: 56.25em) {
+    @media only screen and (max-width: 80em) {
       @content;
-    } //900px
+    } //1360px
   }
   @if $breakpoint == tab-land {
-    @media only screen and (max-width: 75em) {
+    @media only screen and (max-width: 85em) {
       @content;
-    } //1200px
+    } //1360px
   }
   @if $breakpoint == big-desktop {
     @media only screen and (min-width: 110em) {
       @content;
-    } //1800
+    } //1760
   }
 }
 
@@ -68,31 +73,34 @@ body {
   margin: 10px 20px;
   background: white;
   border-radius: 40px;
+  // border: solid 2px yellow;
 
-  @include respond(tab-port) {
+  @include respond(tab-land) {
     border-radius: 20px;
     margin: 10px 20px;
+    // border: solid 2px red;
   }
 
-  @include respond(phone) {
+  // @include respond(tab-port) {
+  //   // border: solid 2px lawngreen;
+
+  // }
+
+  @include respond(phone-land) {
     border-radius: 10px;
     margin: 5px 5px;
+    // border: solid 2px black;
   }
-  @include respond(phone-old) {
+  @include respond(phone-port) {
     border-radius: 0;
     margin: 0;
+    // border: solid 2px blue;
   }
-}
 
-.App {
-  overflow: auto;
-}
-
-@mixin clearfix {
-  &::after {
-    content: "";
-    display: table;
-    clear: both;
+  @include respond(phone-sml) {
+    border-radius: 0;
+    padding-left: 2px;
+    // border: solid 2px hotpink;
   }
 }
 

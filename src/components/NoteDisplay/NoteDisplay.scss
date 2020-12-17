@@ -42,46 +42,6 @@ $xn: 138px;
       height: 100%;
       position: absolute;
       fill: #231f20;
-
-      // sharps and flats //
-      // &[class*="s"],
-      // &[class*="f"] {
-      //   // border: solid 1px green;
-      //   &::before {
-      //     // border: solid 1px red;
-      //     // content: "";
-      //     height: 100%;
-      //     width: 100%;
-      //     position: absolute;
-      //     background-color: transparent;
-      //     background-repeat: no-repeat;
-      //     background-position: top left;
-      //     background-size: 100% 100%;
-
-      //     // .sharp,
-      //     // .flat {
-      //     //   fill: red;
-      //     // }
-      //   }
-      // }
-
-      // &[class*="s"] {
-      //   &::before {
-      //     // left: -164%;
-      //     // top: -65%;
-      //     left: 0;
-      //     top: 0;
-      //     background-image: url(/sharp.svg);
-      //   }
-      // }
-
-      // &[class*="f"] {
-      //   &::before {
-      //     // left: -164%;
-      //     // top: -110%;
-      //     background-image: url(/flat.svg);
-      //   }
-      // }
     }
   }
 

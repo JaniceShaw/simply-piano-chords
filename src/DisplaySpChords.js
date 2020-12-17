@@ -339,7 +339,7 @@ class DisplaySpChords extends React.Component {
 
         return (
             <div className="DisplaySpChords">
-                <div className="DisplaySpChords__hands"><img src="/hands.png" alt="left and right hands with finger numbers" /></div>
+                <div className="DisplaySpChords__hands"><img src="./hands.png" alt="left and right hands with finger numbers" /></div>
 
                 <div className="DisplaySpChords__options">
 

@@ -1,36 +1,6 @@
 @import "base";
 
 .App {
-  // // overflow: auto;
-  // // max-width: 129em;
-  // // margin: auto;
-
-  // @include respond(big-desktop) {
-  //   max-width: 160em;
-  // }
-  // @include respond(tab-land) {
-  //   max-width: 121em;
-  // }
-
-  // @include respond(tab-port) {
-  //   border: solid limegreen 1px;
-  //   max-width: 64.5em;
-  // }
-
-  // @include respond(phone-land) {
-  //   border: solid orange 1px;
-  //   max-width: 53em;
-  // }
-
-  // @include respond(phone-port) {
-  //   // border: solid orange 3px;
-  //   max-width: 45em;
-  // }
-  // @include respond(phone-sml) {
-  //   // border: solid orange 3px;
-  //   max-width: 32em;
-  // }
-
   .menu {
     display: block;
     background: rgb(120, 3, 162);

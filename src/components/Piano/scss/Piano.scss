@@ -2,10 +2,16 @@
 @import "Piano-variables";
 
 .Piano {
-  display: inline-block;
+  display: block;
   margin: 3em 0 4em 0;
-  min-width: 64em;
+  // min-width: 56em; //prob need to check and change this
+  // background-color: darksalmon;
   // border: dashed 2px gainsboro;
+  width: 60em;
+
+  &:nth-child(even) {
+    // padding-right: 3em;
+  }
 
   &__title {
     font-size: 3.4em;

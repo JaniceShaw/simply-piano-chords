@@ -14,7 +14,7 @@ $xn: 138px;
   }
 
   i {
-    z-index: 200;
+    z-index: 2;
     position: absolute;
     top: 0;
     left: 0;
@@ -28,12 +28,12 @@ $xn: 138px;
     border-radius: 1.5em;
     display: inline-block;
     position: relative;
-    margin: 0 6em 1em auto;
+    margin: 0 3em 1em auto;
     transition: max-width 600ms;
 
     &:hover,
     &.showy {
-      max-width: 25em;
+      max-width: 23em;
     }
 
     .note {

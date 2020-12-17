@@ -108,6 +108,7 @@ const sp_chords = [
         octStart: 2,
         octEnd: 4,
         startNote: "B",
+        endNote: "A",
         leftHand: [[2, "B", 5]],
         rightHand: [[3, "B", 1], [4, "D", 2], [4, "Fs", 4]]
     },
@@ -209,6 +210,7 @@ const sp_chords = [
         octStart: 2,
         octEnd: 4,
         startNote: "B",
+        endNote: "A",
         leftHand: [[2, "B", 5]],
         rightHand: [[3, "B", 1], [4, "D", 2], [4, "F", 4]]
     },
@@ -231,6 +233,26 @@ const sp_chords = [
         octEnd: 4,
         leftHand: [[3, "F", 2]],
         rightHand: [[4, "C", 1], [4, "E", 2], [4, "A", 5]]
+    },
+    {
+        level: 6,
+        name: "Em7",
+        type: "seventh",
+        root: "E",
+        octStart: 3,
+        octEnd: 4,
+        leftHand: [[3, "E", 3]],
+        rightHand: [[4, "D", 1], [4, "G", 3], [4, "B", 5]]
+    },
+    {
+        level: 7,
+        name: "G/C",
+        type: "triad - inversion - reverse - Slash Chord",
+        root: "G",
+        octStart: 3,
+        octEnd: 4,
+        leftHand: [[3, "C", 5]],
+        rightHand: [[3, "B", 1], [4, "D", 2], [4, "G", 5]]
     },
 ];
 
@@ -287,6 +309,7 @@ class DisplaySpChords extends React.Component {
                     endOctave={c.octEnd}
                     selectedNotesLeft={c.leftHand}
                     selectedNotesRight={c.rightHand}
+                    lastNote={c.endNote}
                     rootNote={c.root}
                     displayNote={this.state.displayNote}
                     noteDisplayShow={this.state.noteDisplayShow}
@@ -300,6 +323,7 @@ class DisplaySpChords extends React.Component {
                     selectedNotesLeft={c.leftHand}
                     selectedNotesRight={c.rightHand}
                     firstNote={c.startNote}
+                    lastNote={c.endNote}
                     rootNote={c.root}
                     displayNote={this.state.displayNote}
                     noteDisplayShow={this.state.noteDisplayShow}
@@ -315,6 +339,7 @@ class DisplaySpChords extends React.Component {
 
         return (
             <div className="DisplaySpChords">
+                <div className="DisplaySpChords__hands"><img src="/hands.png" alt="left and right hands with finger numbers" /></div>
 
                 <div className="DisplaySpChords__options">
 
@@ -352,6 +377,10 @@ class DisplaySpChords extends React.Component {
                 <section className="DisplaySpChords__section">
                     <h2 className="DisplaySpChords__section__title">Jazz Chords II</h2>
                     {this.getChords(6)}
+                </section>
+                <section className="DisplaySpChords__section">
+                    <h2 className="DisplaySpChords__section__title">Slash Chords</h2>
+                    {this.getChords(7)}
                 </section>
 
             </div>

@@ -5,14 +5,73 @@
   // use for responsive easy resize all
   font-size: 100%;
   // padding: 0 3em 3em;
-  padding-top: 3em;
+  padding: 12em 2em 2em 2em;
   position: relative;
-  margin-top: 6em;
-  // width: 100%;
-  // border: solid purple 2px;
+  background-color: white;
+  overflow: auto;
+  max-width: 135em;
+  margin: 0 auto;
+  // overflow: auto;
+  // max-width: 129em;
+  // margin: auto;
 
   @include respond(big-desktop) {
-    font-size: 120%;
+    max-width: 130em;
+  }
+  @include respond(tab-land) {
+    max-width: 130em;
+  }
+
+  @include respond(tab-port) {
+    // border: solid limegreen 2px;
+    max-width: 130em;
+  }
+
+  @include respond(phone-land) {
+    // border: solid orange 2px;
+    max-width: 73em;
+  }
+
+  @include respond(phone-port) {
+    // border: solid blue 3px;
+    padding-left: 0;
+    padding-right: 0;
+    // max-width: 130em;
+    max-width: 100%;
+    width: 100%;
+  }
+  @include respond(phone-sml) {
+    // border: solid orange 3px;
+    // max-width: 32em;
+    width: 100%;
+  }
+
+  &__hands {
+    width: 46em;
+    // height: 340px;
+    border: solid 0.7em lighten(rgb(128, 49, 0), 70);
+    overflow: hidden;
+    padding: 2em;
+    border-radius: 2em;
+    // float: right;
+    margin: 0 auto;
+
+    @include respond(tab-port) {
+      width: 36em;
+    }
+
+    @include respond(phone-land) {
+      margin-top: 40px;
+      // padding: 0.6em;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @include respond(big-desktop) {
+    font-size: 106%;
     // padding: 3em;
   }
 
@@ -54,16 +113,11 @@
 
   &__options {
     display: block;
-    // border: hotpink solid 2px;
-    // background-color: hotpink;
     text-align: right;
     position: fixed;
-    // right: 0;
     width: 100%;
     z-index: 1000;
     top: 1em;
-    // left: 0;
-
     right: 8em;
 
     //   @media print {
@@ -77,8 +131,14 @@
   }
 
   &__section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    // background-color: darkkhaki;
     border-bottom: solid 0.8em rgba(165, 182, 101, 0.194);
-    // border: solid 3px rgba(165, 182, 101, 0.194);
+    // border-bottom: solid 3px rgba(165, 182, 101, 0.194);
+    clear: both;
 
     margin-bottom: 7em;
     padding-bottom: 3em;
@@ -89,6 +149,8 @@
     margin-left: auto auto;
 
     &__title {
+      text-align: center;
+      flex-basis: 100%;
       font-size: 3em;
       color: purple;
       break-after: avoid-page;

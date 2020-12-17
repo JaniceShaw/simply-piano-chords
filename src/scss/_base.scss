@@ -61,7 +61,8 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 html {
   font-size: 62.5%;
-  background-color: purple;
+  background: rgb(120, 3, 162);
+
   @media print {
     background-color: white;
   }
@@ -70,14 +71,15 @@ html {
 body {
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin: 10px 20px;
+  // margin: 10px 20px;
   background: white;
-  border-radius: 40px;
+  background: rgb(120, 3, 162);
+  // border-radius: 40px;
   // border: solid 2px yellow;
 
   @include respond(tab-land) {
-    border-radius: 20px;
-    margin: 10px 20px;
+    // border-radius: 20px;
+    // margin: 10px 20px;
     // border: solid 2px red;
   }
 
@@ -87,19 +89,19 @@ body {
   // }
 
   @include respond(phone-land) {
-    border-radius: 10px;
-    margin: 5px 5px;
+    // border-radius: 10px;
+    // margin: 5px 5px;
     // border: solid 2px black;
   }
   @include respond(phone-port) {
-    border-radius: 0;
-    margin: 0;
+    // border-radius: 0;
+    // margin: 0;
     // border: solid 2px blue;
   }
 
   @include respond(phone-sml) {
-    border-radius: 0;
-    padding-left: 2px;
+    // border-radius: 0;
+    // padding-left: 2px;
     // border: solid 2px hotpink;
   }
 }

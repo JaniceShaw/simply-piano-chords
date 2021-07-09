@@ -9,7 +9,7 @@ const sp_chords = [
     {
         level: 1,
         name: "C",
-        type: "triad",
+        type: "Root",
         root: "C",
         octStart: 3,
         octEnd: 4,
@@ -19,7 +19,7 @@ const sp_chords = [
     {
         level: 1,
         name: "G",
-        type: "triad - inversion - reverse",
+        type: "inversion - (reverse)",
         root: "G",
         octStart: 3,
         octEnd: 4,
@@ -30,7 +30,7 @@ const sp_chords = [
     {
         level: 1,
         name: "D",
-        type: "triad",
+        type: "Root",
         root: "D",
         octStart: 3,
         octEnd: 4,
@@ -40,7 +40,7 @@ const sp_chords = [
     {
         level: 1,
         name: "Em",
-        type: "triad",
+        type: "Root",
         root: "E",
         octStart: 3,
         octEnd: 4,
@@ -50,7 +50,7 @@ const sp_chords = [
     {
         level: 1,
         name: "Am",
-        type: "triad - inversion - reverse",
+        type: "inversion - (reverse)",
         root: "A",
         octStart: 3,
         octEnd: 4,
@@ -62,7 +62,7 @@ const sp_chords = [
     {
         level: 2,
         name: "F",
-        type: "triad - inversion - middle",
+        type: "Second inversion - (middle)",
         root: "F",
         octStart: 3,
         octEnd: 4,
@@ -72,7 +72,7 @@ const sp_chords = [
     {
         level: 2,
         name: "Dm",
-        type: "triad",
+        type: "Root",
         root: "D",
         octStart: 3,
         octEnd: 4,
@@ -82,7 +82,7 @@ const sp_chords = [
     {
         level: 3,
         name: "E",
-        type: "triad",
+        type: "Root",
         root: "E",
         octStart: 3,
         octEnd: 4,
@@ -93,7 +93,7 @@ const sp_chords = [
     {
         level: 3,
         name: "A",
-        type: "triad - inversion - reverse",
+        type: "inversion - (reverse)",
         root: "A",
         octStart: 3,
         octEnd: 4,
@@ -103,7 +103,7 @@ const sp_chords = [
     {
         level: 3,
         name: "Bm",
-        type: "triad",
+        type: "Root",
         root: "B",
         octStart: 2,
         octEnd: 4,
@@ -254,6 +254,95 @@ const sp_chords = [
         leftHand: [[3, "C", 5]],
         rightHand: [[3, "B", 1], [4, "D", 2], [4, "G", 5]]
     },
+    {
+        level: 8,
+        name: "C (root)",
+        type: "Root Position",
+        root: "C",
+        octStart: 4,
+        octEnd: 5,
+        // startNote: "B",
+        leftHand: [[3, "C", 5]],
+        rightHand: [[4, "C", 1], [4, "E", 3], [4, "G", 5]]
+    },
+    {
+        level: 8,
+        name: "C (1st)",
+        type: "First Inversion (reverse)",
+        root: "C",
+        octStart: 4,
+        octEnd: 5,
+        // startNote: "B",
+        //  endNote: "C",
+        leftHand: [[3, "C", 5]],
+        rightHand: [[4, "E", 1], [4, "G", 2], [5, "C", 5]]
+    },
+    {
+        level: 8,
+        name: "C (2nd)",
+        type: "Second Inversion (middle)",
+        root: "C",
+        octStart: 4,
+        octEnd: 5,
+        // startNote: "B",
+        //  endNote: "C",
+        leftHand: [[3, "C", 5]],
+        rightHand: [[4, "G", 1], [5, "C", 3], [5, "E", 5]]
+    },
+    {
+        level: 8,
+        name: "C (root) octave up",
+        type: "Root Position",
+        root: "C",
+        octStart: 4,
+        octEnd: 5,
+        // startNote: "B",
+        leftHand: [[3, "C", 5]],
+        rightHand: [[5, "C", 1], [5, "E", 3], [5, "G", 5]]
+    },
+
+    {
+        level: 8,
+        name: "G (root)",
+        type: "Root position",
+        root: "G",
+        octStart: 3,
+        octEnd: 4,
+        leftHand: [[2, "G", 1]],
+        rightHand: [[3, "G", 1], [3, "B", 3], [4, "D", 5]]
+    },
+    {
+        level: 8,
+        name: "G (1st)",
+        type: "First Inversion - (reverse)",
+        root: "G",
+        octStart: 3,
+        octEnd: 4,
+        leftHand: [[2, "G", 1]],
+        rightHand: [[3, "B", 1], [4, "D", 2], [4, "G", 5]]
+    },
+    {
+        level: 8,
+        name: "G (2nd)",
+        type: "Second Inversion - (middle)",
+        root: "G",
+        octStart: 3,
+        octEnd: 4,
+        leftHand: [[2, "G", 1]],
+        rightHand: [[4, "D", 1], [4, "G", 3], [4, "B", 5]]
+    },
+
+    {
+        level: 8,
+        name: "G (root) octave up",
+        type: "Root position",
+        root: "G",
+        octStart: 4,
+        octEnd: 5,
+        leftHand: [[2, "G", 1]],
+        rightHand: [[4, "G", 1], [4, "B", 3], [5, "D", 5]]
+    },
+    
 ];
 
 
@@ -381,6 +470,10 @@ class DisplaySpChords extends React.Component {
                 <section className="DisplaySpChords__section">
                     <h2 className="DisplaySpChords__section__title">Slash Chords</h2>
                     {this.getChords(7)}
+                </section>
+                <section className="DisplaySpChords__section DisplaySpChords__section--noBass">
+                    <h2 className="DisplaySpChords__section__title">Chord Inversions</h2>
+                    {this.getChords(8)}
                 </section>
 
             </div>

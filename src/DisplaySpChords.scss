@@ -45,7 +45,7 @@
   }
 
   &__hands {
-    width: 46em;
+    width: 40em;
     border: solid 0.7em lighten(rgb(128, 49, 0), 70);
     overflow: hidden;
     padding: 2em;
@@ -97,9 +97,10 @@
     top: 1em;
     right: 8em;
 
-    //   @media print {
-
-    //   }
+       @media print {
+        display:none;
+        visibility:hidden; 
+       }
 
     @include respond(phone-land) {
       top: 0.5em;
@@ -131,14 +132,21 @@
       break-after: avoid-page;
       page-break-after: avoid;
     }
+      
+
   }
 
   @media print {
-    font-size: 54%;
+    font-size: 58%;
     padding: 0;
   }
 }
 
 @page {
   margin: 30px 10px 30px 10px;
+}
+
+//Modifies -- move to correct place -- to hide bass note display if in chord inversions
+.DisplaySpChords__section.DisplaySpChords__section--noBass .Piano .NoteDisplay .NoteDisplay__bassClef{
+  display: none;
 }

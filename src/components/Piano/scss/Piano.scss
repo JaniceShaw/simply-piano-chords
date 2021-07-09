@@ -5,7 +5,7 @@
   display: block;
   margin: 3em 0 4em 0;
   // min-width: 56em; //prob need to check and change this
-  // background-color: darksalmon;
+  //  background-color: darksalmon;
   width: 60em;
 
   &__title {
@@ -28,7 +28,7 @@
 
     @media print {
       border: solid 2px rgba(117, 0, 128, 0.653);
-      padding: 15px;
+      padding: 5px;
       color: black;
       background-color: transparent;
     }

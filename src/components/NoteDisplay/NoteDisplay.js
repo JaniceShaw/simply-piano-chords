@@ -69,6 +69,7 @@ class NoteDisplay extends React.Component {
                             >
                                 {((n[1] === "C" && n[0] === 4) || (n[1] === "Cs" && n[0] === 4)) && <i><Ledger /></i>}
                                 {((n[1] === "B" && n[0] === 3) || (n[1] === "Bf" && n[0] === 3)) && <i><Ledger /></i>}
+                                {((n[1] === "G" && n[0] === 3) || (n[1] === "Gf" && n[0] === 3)) && <i><Ledger /></i>}
                                 {n[1].endsWith("s") && <i><Sharp /></i>}
                                 {n[1].endsWith("f") && <i><Flat /></i>}
                                 <Note />

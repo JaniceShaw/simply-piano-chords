@@ -49,6 +49,10 @@ $xn: 138px;
     border: solid 0.4em $colour-piano-rightHand;
 
     .note {
+
+      &.note_G3 .theNote {
+        transform: translate($xn, 198.7px);
+      }
       &.note_B3 .theNote,
       &.note_Bf3 .theNote {
         transform: translate($xn, 180.2px);
@@ -68,6 +72,10 @@ $xn: 138px;
       &.note_B3 .ledger,
       &.note_Bf3 .ledger {
         transform: translate($xn - 5px, 170.7px);
+      }
+
+      &.note_G3 .ledger {
+        transform: translate($xn - 5px, 190.7px);
       }
 
       &.note_Cs4 .sharp {
@@ -125,10 +133,14 @@ $xn: 138px;
       &.note_E5 .theNote {
         transform: translate($xn, 84.7px);
       }
-
+//not sure why A3 is together with A3?
       &.note_F5 .theNote,
       &.note_A3 .theNote {
         transform: translate($xn, 75.2px);
+      }
+
+      &.note_G5 .theNote {
+        transform: translate($xn, 64.7px);
       }
 
       &.selNote {
